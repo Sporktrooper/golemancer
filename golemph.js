@@ -15,12 +15,12 @@ var dummytext;
 
 function preload ()
 {
-  golemimage = this.load.image('golem', 'assets/golem-1.jpg');  
+  this.load.image('golem', 'assets/golem-1.jpg');  
 }
 
 function create ()
 {
-  this.add.image(400,300,'golem');
+  golemimage = this.add.image(400,300,'golem');
   dummytext = this.add.text(0,0,'Hello world',{font: "14pt Arial"});
 }
 
