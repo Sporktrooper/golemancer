@@ -15,6 +15,7 @@ var game = new Phaser.Game(config);
 var golemimage;
 var dummytext;
 var ticks = 0;
+var hourglass;
 
 function preload ()
 {
@@ -25,11 +26,13 @@ function create ()
 {
   golemimage = this.add.sprite(400,300,'golem');
   dummytext = this.add.text(0,0,'Hello world',{font: "14pt Arial"});
+  hourglass = this.getTime();
 }
 
 function update ()
 {
   golemimage.angle += 1;
   ticks++;
-  dummytext.text = 'hello world 10fps ' + ticks;
+  dummytext.text = 'hello world 10fps ' + ticks + ' ' + this.getTime()-hourglass;
+  hourglass = this.getTime();
 }
