@@ -35,7 +35,7 @@ function update ()
   dummytext.text = 'hello world 10fps ' + ticks;
 }
 
-function getTime ()
+function getTime()
 {
   var d = new Date();
   return d.getTime();
