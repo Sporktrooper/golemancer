@@ -8,7 +8,7 @@ var config = {
         update: update
     },
 
-    fps: 30
+    fps: 10
 };
 
 var game = new Phaser.Game(config);
@@ -24,12 +24,12 @@ function preload ()
 function create ()
 {
   golemimage = this.add.sprite(400,300,'golem');
-  dummytext = this.add.text(0,0,'Hello world5',{font: "14pt Arial"});
+  dummytext = this.add.text(0,0,'Hello world',{font: "14pt Arial"});
 }
 
 function update ()
 {
   golemimage.angle += 1;
   ticks++;
-  dummytext.text = 'hello world' + ticks;
+  dummytext.text = 'hello world 10fps' + ticks;
 }
