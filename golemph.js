@@ -20,6 +20,7 @@ function preload ()
 function create ()
 {
   this.add.image(400,300,'golem');
+  this.add.text(400,300,'Hello world');
 }
 
 function update ()
