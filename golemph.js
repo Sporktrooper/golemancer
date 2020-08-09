@@ -10,11 +10,12 @@ var config = {
 };
 
 var game = new Phaser.Game(config);
+var golemimage;
 var dummytext;
 
 function preload ()
 {
-  this.load.image('golem', 'assets/golem-1.jpg');  
+  golemimage = this.load.image('golem', 'assets/golem-1.jpg');  
 }
 
 function create ()
@@ -25,5 +26,6 @@ function create ()
 
 function update ()
 {
-  dummytext = this.add.text(0,0,'update fired');
+  console.log(golemimage.angle);
+  golemimage.setAngle = golemimage.angle++;
 }
