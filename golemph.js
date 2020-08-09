@@ -7,6 +7,8 @@ var config = {
         create: create,
         update: update
     }
+
+    fps: 30
 };
 
 var game = new Phaser.Game(config);
