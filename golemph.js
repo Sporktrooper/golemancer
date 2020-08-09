@@ -12,6 +12,7 @@ var config = {
 var game = new Phaser.Game(config);
 var golemimage;
 var dummytext;
+var ticks = 0;
 
 function preload ()
 {
@@ -27,4 +28,6 @@ function create ()
 function update ()
 {
   golemimage.angle += 1;
+  ticks++;
+  dummytext += ticks;
 }
