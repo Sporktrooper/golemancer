@@ -6,7 +6,7 @@ var config = {
         preload: preload,
         create: create,
         update: update
-    }
+    },
 
     fps: 30
 };
@@ -24,7 +24,7 @@ function preload ()
 function create ()
 {
   golemimage = this.add.sprite(400,300,'golem');
-  dummytext = this.add.text(0,0,'Hello world4',{font: "14pt Arial"});
+  dummytext = this.add.text(0,0,'Hello world5',{font: "14pt Arial"});
 }
 
 function update ()
