@@ -33,6 +33,6 @@ function update ()
 {
   golemimage.angle += 1;
   ticks++;
-  dummytext.text = 'hello world 10fps ' + ticks + ' ' + Date.now() - hourglass;
+  dummytext.text = 'hello world 10fps ' + ticks + ' ' + (Date.now() - hourglass);
   hourglass = Date.now();
 }
