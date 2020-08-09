@@ -31,5 +31,5 @@ function update ()
 {
   golemimage.angle += 1;
   ticks++;
-  dummytext.text = 'hello world 10fps' + ticks;
+  dummytext.text = 'hello world 10fps' + ticks + ' ' + time.deltaTime;
 }
