@@ -10,8 +10,6 @@ var config = {
 };
 
 var game = new Phaser.Game(config);
-var clickCount = 0;
-var clickCounter;
 
 
 function preload ()
@@ -21,18 +19,9 @@ function preload ()
 
 function create ()
 {
-  // game.stage.backgroundColor = '#124184';
   this.add.image(400,300,'golem');
-  clickCounter = game.add.bitmapText(5,5, 'Total clicks: '+ clickCount, {fill: '#ffffff', font: '14pt Arial'});
-  game.add.button(200, 150, 'button', actionOnClick, this);
 }
 
 function update ()
 {
-}
-
-function actionOnClick()
-{
-  clickCount++;
-  clickCounter.setText('Total clicks: ' + clickCount);
 }
