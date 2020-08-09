@@ -26,5 +26,5 @@ function create ()
 
 function update ()
 {
-
+  golemimage.angle += 1;
 }
