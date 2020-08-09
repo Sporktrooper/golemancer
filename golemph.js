@@ -16,7 +16,7 @@ var ticks = 0;
 
 function preload ()
 {
-  this.load.sprite('golem', 'assets/golem-1.jpg');  
+  this.load.image('golem', 'assets/golem-1.jpg');  
 }
 
 function create ()
