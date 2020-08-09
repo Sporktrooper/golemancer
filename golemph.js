@@ -24,7 +24,7 @@ function preload ()
 function create ()
 {
   golemimage = this.add.sprite(400,300,'golem');
-  dummytext = this.add.text(0,0,'Hello world3',{font: "14pt Arial"});
+  dummytext = this.add.text(0,0,'Hello world4',{font: "14pt Arial"});
 }
 
 function update ()
