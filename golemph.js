@@ -32,6 +32,6 @@ function update ()
 {
   golemimage.angle += 1;
   ticks++;
-  dummytext.text = 'hello world ' + game.loop.targetFps + ' ' + game.loop.actualFps + ' ' + game.loop.framesThisSecond + ' ' + ticks + ' ' + (Date.now() - hourglass);
+  dummytext.text = 'hello world ' + game.loop.targetFps + ' ' + Math.round(game.loop.actualFps) + ' ' + game.loop.framesThisSecond + ' ' + ticks + ' ' + (Date.now() - hourglass);
   hourglass = Date.now();
 }
