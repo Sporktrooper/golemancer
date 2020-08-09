@@ -29,5 +29,5 @@ function update ()
 {
   golemimage.angle += 1;
   ticks++;
-  dummytext += ticks;
+  dummytext = 'hello world' + ticks;
 }
