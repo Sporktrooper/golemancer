@@ -26,13 +26,13 @@ function create ()
 {
   golemimage = this.add.sprite(400,300,'golem');
   dummytext = this.add.text(0,0,'Hello world',{font: "14pt Arial"});
-  hourglass = this.getTime();
+  hourglass = Date.now();
 }
 
 function update ()
 {
   golemimage.angle += 1;
   ticks++;
-  dummytext.text = 'hello world 10fps ' + ticks + ' ' + this.getTime()-hourglass;
-  hourglass = this.getTime();
+  dummytext.text = 'hello world 10fps ' + ticks + ' ' + Date.now()-hourglass;
+  hourglass = Date.now();
 }
