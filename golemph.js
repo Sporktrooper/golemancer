@@ -23,9 +23,24 @@ function preload ()
 
 function create ()
 {
-  golemimage = this.add.sprite(400,300,'golem');
+  golemimage = this.add.sprite(400,300,'golem').setInteractive();
   dummytext = this.add.text(0,0,'Hello world',{font: "14pt Arial"});
   hourglass = Date.now();
+
+  golemimage.on('pointerdown', function (pointer) {
+
+    this.setTint(0xff0000);
+  });
+
+  golemimage.on('pointerout', function (pointer) {
+
+    this.clearTint();
+  });
+
+  golemimage.on('pointerup', function (pointer) {
+
+    this.clearTint();
+  })
 }
 
 function update ()
