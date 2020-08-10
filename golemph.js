@@ -43,7 +43,7 @@ function create ()
     this.clearTint();
   });
 
-  lightbulb = this.add.sprite(0,0,'lightbulb').setInteractive();
+  lightbulb = this.add.sprite(200,200,'lightbulb').setInteractive();
 
   lightbulb.on('pointerdown', function (pointer) {
     clickedBulb();
