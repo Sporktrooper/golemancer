@@ -30,6 +30,7 @@ function create ()
   golemimage.on('pointerdown', function (pointer) {
 
     this.setTint(0xff0000);
+    rotateImage();
   });
 
   golemimage.on('pointerout', function (pointer) {
@@ -45,7 +46,7 @@ function create ()
 
 function update ()
 {
-  rotateImage();
+  // rotateImage();
   debugText();
 }
 
@@ -65,7 +66,7 @@ function debugText(){
 }
 
 function rotateImage(){
-  golemimage.angle += 1;
+  golemimage.angle += 10;
 }
 
 
