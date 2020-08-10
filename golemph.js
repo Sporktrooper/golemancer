@@ -2,6 +2,7 @@ var config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
+    fps: 10,
     scene: {
         preload: preload,
         create: create,
