@@ -79,12 +79,7 @@ function clickedBulb(){
   switch (lightbulb.state){
     
     case null:
-      
-      // Lightbulb state undefined, turn it on
-
-      lightbulb.state = true;
-      this.setTint(0x00ff00);
-      console.log(lightbulb.state);
+    
 
       break;
 
@@ -107,8 +102,13 @@ function clickedBulb(){
       console.log(lightbulb.state);
 
     default: 
-      // Wtf
-      console.log("dun goofed");
+
+      // Lightbulb state undefined, turn it on
+
+      lightbulb.state = true;
+      this.setTint(0x00ff00);
+      console.log(lightbulb.state);
+      // console.log("dun goofed");
   }
 }
 
