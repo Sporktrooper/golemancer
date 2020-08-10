@@ -12,7 +12,7 @@ var config = {
 
 var game = new Phaser.Game(config);
 var golemimage;
-var dummytext;
+var dummytext = "";
 var ticks = 0;
 var hourglass = Date.now();
 
