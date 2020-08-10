@@ -2,7 +2,7 @@ var config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
-    fps: { target: 10 },
+    fps: { target: 30 },
     scene: {
         preload: preload,
         create: create,
@@ -23,7 +23,6 @@ function preload ()
 
 function create ()
 {
-  // game.loop.targetFps = 10;
   golemimage = this.add.sprite(400,300,'golem');
   dummytext = this.add.text(0,0,'Hello world',{font: "14pt Arial"});
   hourglass = Date.now();
@@ -31,7 +30,11 @@ function create ()
 
 function update ()
 {
-  golemimage.angle += 1;
+  rotateImage();
+  debugText();
+}
+
+function debugText(){
   ticks++;
   dummytext.text = 'hello world ' 
                   + game.loop.targetFps 
@@ -45,3 +48,22 @@ function update ()
                   + (Date.now() - hourglass);
   hourglass = Date.now();
 }
+
+function rotateImage(){
+  golemimage.angle += 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
