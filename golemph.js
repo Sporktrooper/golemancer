@@ -23,7 +23,7 @@ function preload ()
 
 function create ()
 {
-  game.loop.targetFps = 10;
+  // game.loop.targetFps = 10;
   golemimage = this.add.sprite(400,300,'golem');
   dummytext = this.add.text(0,0,'Hello world',{font: "14pt Arial"});
   hourglass = Date.now();
