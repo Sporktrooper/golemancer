@@ -83,6 +83,8 @@ function clickedBulb(){
       // Lightbulb state undefined, turn it on
 
       lightbulb.state = true;
+      this.setTint(0x00ff00);
+      console.log(lightbulb.state);
 
       break;
 
@@ -91,6 +93,8 @@ function clickedBulb(){
       // Lightbulb is on
 
       lightbulb.state = false;
+      this.setTint(0xff0000);
+      console.log(lightbulb.state);
 
       break;
 
@@ -99,6 +103,8 @@ function clickedBulb(){
       // Lightbulb is off
 
       lightbulb.state = true;
+      this.setTint(0x00ff00)
+      console.log(lightbulb.state);
 
     default: 
       // Wtf
