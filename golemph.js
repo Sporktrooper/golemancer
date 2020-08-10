@@ -14,19 +14,19 @@ var game = new Phaser.Game(config);
 var golemimage;
 var dummytext;
 var ticks = 0;
-var hourglass;
+var hourglass = Date.now();
 
 function preload ()
 {
   this.load.image('golem', 'assets/golem-1.jpg');  
+  this.load.image('lightbulb', 'assets/light.gif');
 }
 
 function create ()
 {
-  golemimage = this.add.sprite(400,300,'golem').setInteractive();
-  dummytext = this.add.text(0,0,'Hello world',{font: "14pt Arial"});
-  hourglass = Date.now();
 
+  golemimage = this.add.sprite(400,300,'golem').setInteractive();
+  
   golemimage.on('pointerdown', function (pointer) {
 
     this.setTint(0xff0000);
@@ -41,7 +41,13 @@ function create ()
   golemimage.on('pointerup', function (pointer) {
 
     this.clearTint();
-  })
+  });
+
+  lightbulb = this.add.sprite(0,0,'lightbulb').setInteractive();
+
+  lightbulb.on('pointerdown', function (pointer) {
+    clickedBulb();
+  });
 }
 
 function update ()
@@ -69,7 +75,36 @@ function rotateImage(){
   golemimage.angle += 10;
 }
 
+function clickedBulb(){
+  switch (lightbulb.state){
+    
+    case null:
+      
+      // Lightbulb state undefined, turn it on
 
+      lightbulb.state = true;
+
+      break;
+
+    case true:
+
+      // Lightbulb is on
+
+      lightbulb.state = false;
+
+      break;
+
+    case false:
+
+      // Lightbulb is off
+
+      lightbulb.state = true;
+
+    default: 
+      // Wtf
+      console.log("dun goofed");
+  }
+}
 
 
 
