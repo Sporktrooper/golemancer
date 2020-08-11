@@ -96,6 +96,8 @@ function clickedBulb(){
       lightbulb.setTint(0x00ff00);
       console.log(lightbulb.state);
 
+      break;
+
     default: 
 
       // Lightbulb state undefined, turn it on
