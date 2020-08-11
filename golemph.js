@@ -50,7 +50,18 @@ function create ()
     clickedBulb();
   });
 
+  var vialText = this.add.text(350, 250, '', { font: '16px Courier', fill: '#0x0000ff'});
   var vial = this.add.image(300, 300, 'vial');
+  vial.setDataEnabled();
+  vial.data.set('name', 'Vial of Substance');
+  vial.data.set('capacity', 50);
+  vial.data.set('rate'), 1);
+
+  vialText.setText([
+    'Name: ' + vial.data.get('name'),
+    'Capacity: ' + vial.data.get('capacity'),
+    'Fill Rate: ' + vial.data.get('rate')
+  ]); 
 }
 
 function update ()
