@@ -50,7 +50,7 @@ function create ()
     clickedBulb();
   });
 
-  var vialText = this.add.text(350, 250, '', { font: '16px Courier', tint: '#0xff00ff'});
+  var vialText = this.add.text(350, 250, '', { font: '16px Courier', tint: '#0xb19d12'});
   var vial = this.add.image(300, 300, 'vial');
   vial.setDataEnabled();
   vial.data.set('name', 'Vial of Substance');
