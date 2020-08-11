@@ -49,7 +49,7 @@ function create ()
   //   clickedBulb();
   // });
 
-  lightbulb = defineInteractable(this, 200, 200, 'lightbulb')
+  lightbulb = defineInteractable(lightbulb, 200, 200, 'lightbulb')
 }
 
 function update ()
