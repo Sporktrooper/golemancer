@@ -43,13 +43,11 @@ function create ()
     this.clearTint();
   });
 
-  // lightbulb = this.add.sprite(200,200,'lightbulb').setInteractive();
+  lightbulb = this.add.sprite(200,200,'lightbulb').setInteractive();
 
-  // lightbulb.on('pointerdown', function (pointer) {
-  //   clickedBulb();
-  // });
-  var lightbulb;
-  lightbulb = defineInteractable(lightbulb, 200, 200, 'lightbulb')
+  lightbulb.on('pointerdown', function (pointer) {
+    clickedBulb();
+  });
 }
 
 function update ()
@@ -107,16 +105,6 @@ function clickedBulb(){
       console.log(lightbulb.state);
       // console.log("dun goofed");
   }
-}
-
-function defineInteractable(element, x, y, aSprite){
-    element = game.add.sprite(200,200,'lightbulb').setInteractive();
-
-  // element.on('pointerdown', function (pointer) {
-  //   element.setTint(0xff0000);
-  // });
-
-    return element;
 }
 
 
