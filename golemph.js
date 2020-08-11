@@ -48,7 +48,7 @@ function create ()
   // lightbulb.on('pointerdown', function (pointer) {
   //   clickedBulb();
   // });
-
+  var lightbulb;
   lightbulb = defineInteractable(lightbulb, 200, 200, 'lightbulb')
 }
 
