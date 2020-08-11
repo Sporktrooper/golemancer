@@ -20,6 +20,7 @@ function preload ()
 {
   this.load.image('golem', 'assets/golem-1.jpg');  
   this.load.image('lightbulb', 'assets/light.gif');
+  this.load.image('vial', 'assets/rectangle.png');
 }
 
 function create ()
@@ -48,6 +49,8 @@ function create ()
   lightbulb.on('pointerdown', function (pointer) {
     clickedBulb();
   });
+
+  var vial = this.add.image(300, 300, 'vial');
 }
 
 function update ()
