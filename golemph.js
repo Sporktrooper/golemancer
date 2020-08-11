@@ -55,7 +55,7 @@ function create ()
   vial.setDataEnabled();
   vial.data.set('name', 'Vial of Substance');
   vial.data.set('capacity', 50);
-  vial.data.set('rate'), 1);
+  vial.data.set('rate', 1);
 
   vialText.setText([
     'Name: ' + vial.data.get('name'),
