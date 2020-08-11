@@ -109,12 +109,12 @@ function clickedBulb(){
   }
 }
 
-function defineInteractable(element, x, y, sprite){
-    element = this.add.sprite.setInteractive(x, y, sprite);
+function defineInteractable(element, x, y, aSprite){
+    element = this.add.sprite.setInteractive(x, y, aSprite);
 
-  element.on('pointerdown', function (pointer) {
-    element.setTint(0xff0000);
-  });
+  // element.on('pointerdown', function (pointer) {
+  //   element.setTint(0xff0000);
+  // });
 
     return element;
 }
