@@ -43,11 +43,13 @@ function create ()
     this.clearTint();
   });
 
-  lightbulb = this.add.sprite(200,200,'lightbulb').setInteractive();
+  // lightbulb = this.add.sprite(200,200,'lightbulb').setInteractive();
 
-  lightbulb.on('pointerdown', function (pointer) {
-    clickedBulb();
-  });
+  // lightbulb.on('pointerdown', function (pointer) {
+  //   clickedBulb();
+  // });
+
+  lightbulb = defineInteractable(this, 200, 200, 'lightbulb')
 }
 
 function update ()
@@ -67,7 +69,7 @@ function debugText(){
                   + ' ' 
                   + ticks 
                   + ' ' 
-                  + (Date.now() - hourglass);
+                  + (Date.now() - hourglass); // debug text, displays desired fps, actual fps, ticks since start, etc
   hourglass = Date.now();
 }
 
@@ -93,7 +95,7 @@ function clickedBulb(){
       // Lightbulb is off
 
       lightbulb.state = true;
-      lightbulb.setTint(0x00ff00)
+      lightbulb.setTint(0x00ff00);
       console.log(lightbulb.state);
 
     default: 
@@ -107,8 +109,15 @@ function clickedBulb(){
   }
 }
 
+function defineInteractable(element, x, y, sprite){
+    element = this.add.sprite.setInteractive(x, y, sprite);
 
+  element.on('pointerdown', function (pointer) {
+    element.setTint(0xff0000);
+  });
 
+    return element;
+}
 
 
 
