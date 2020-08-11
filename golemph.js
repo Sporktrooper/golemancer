@@ -110,7 +110,7 @@ function clickedBulb(){
 }
 
 function defineInteractable(element, x, y, aSprite){
-    element = this.add.sprite.setInteractive(x, y, aSprite);
+    element.add.sprite.setInteractive(x, y, aSprite);
 
   // element.on('pointerdown', function (pointer) {
   //   element.setTint(0xff0000);
