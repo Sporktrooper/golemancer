@@ -16,6 +16,7 @@ var dummytext = "";
 var ticks = 0;
 var hourglass = Date.now();
 var mdText;
+var vialTopAlpha = 1;
 
 function preload ()
 {
@@ -83,6 +84,9 @@ function update ()
     'x: ' + pointer.x,
     'y: ' + pointer.y    
   ]);
+
+  vialGraphics.setAlpha(vialTopAlpha, vialTopAlpha, 1, 1);
+  vialTopAlpha -= 0.0001;
 }
 
 function debugText(){
