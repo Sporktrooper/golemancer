@@ -97,6 +97,7 @@ function update ()
     vialGraphics.setAlpha(vialTopAlpha, vialTopAlpha, 1, 1);
     vialTopAlpha = vialTopAlpha - 0.1;
     vial.data.set('rate', vialTopAlpha);
+    console.log(vial.data.get('rate'));
 
     timeOfLastUpdate = Date.now();
     console.log('Update fired:' + Date.now())
