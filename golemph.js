@@ -11,17 +11,8 @@ var config = {
 };
 
 var game = new Phaser.Game(config);
-var golemimage;
-var dummytext = "";
 
-var ticks = 0;
-var updateInterval = 1000; // ms between full update cycles
-var timeSinceLastUpdate;
-var timeOfLastUpdate = Date.now();
-
-var hourglass = Date.now();
 var mdText;
-var vialTopAlpha = 1;
 var vial;
 
 function preload ()
@@ -65,7 +56,7 @@ function create ()
   vial.setDataEnabled();
   vial.data.set('name', 'Vial of Substance');
   vial.data.set('capacity', 50);
-  vial.data.set('rate', vialTopAlpha);
+  vial.data.set('rate', 1);
   vialRect = new Phaser.Geom.Rectangle(50, 140, 200, 320)
   vialGraphics = this.add.graphics({ fillStyle: { color: 0x0000ff } });
   vialGraphics.fillRectShape(vialRect);
@@ -85,28 +76,26 @@ function update ()
   // rotateImage();
   // debugText();
 
-  if(Date.now() > (timeOfLastUpdate + updateInterval)){
+  // if(Date.now() > (timeOfLastUpdate + updateInterval)){
 
-    var pointer = this.input.activePointer;
 
-    mdText.setText([
-      'x: ' + pointer.x,
-      'y: ' + pointer.y    
-    ]);
+  //   timeOfLastUpdate = Date.now();
+  //   console.log('Update fired:' + Date.now())
 
-    vialGraphics.setAlpha(vialTopAlpha, vialTopAlpha, 1, 1);
-    if(vialTopAlpha>0) vialTopAlpha = vialTopAlpha - 0.1;
-    vial.data.set('rate', vialTopAlpha);
-    console.log(vial.data.get('rate'));
+  // } else { 
 
-    timeOfLastUpdate = Date.now();
-    console.log('Update fired:' + Date.now())
+  //   // console.log('skipped update');
 
-  } else { 
+  // }
 
-    // console.log('skipped update');
+  var pointer = this.input.activePointer;
 
-  }
+  mdText.setText([
+    'x: ' + pointer.x,
+    'y: ' + pointer.y    
+  ]);
+
+
 
 }
 
