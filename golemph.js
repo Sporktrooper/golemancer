@@ -59,7 +59,7 @@ function create ()
   vial.data.set('name', 'Vial of Substance');
   vial.data.set('capacity', 50);
   vial.data.set('rate', 1);
-  vialRect = new Phaser.Geom.Rectangle(250, 200, 300, 200)
+  vialRect = new Phaser.Geom.Rectangle(50, 140, 200, 320)
   vialGraphics = this.add.graphics({ fillStyle: { color: 0x0000ff } });
   vialGraphics.fillRectShape(vialRect);
 
