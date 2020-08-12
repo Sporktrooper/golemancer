@@ -84,7 +84,7 @@ function update ()
   // rotateImage();
   // debugText();
 
-  if(Date.Now() > (timeOfLastUpdate + tock)){
+  if(Date.now() > (timeOfLastUpdate + tock)){
 
     var pointer = this.input.activePointer;
 
