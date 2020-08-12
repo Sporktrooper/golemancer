@@ -26,42 +26,49 @@ function preload ()
 function create ()
 {
 
-  golemimage = this.add.sprite(400,300,'golem').setInteractive();
+  // golemimage = this.add.sprite(400,300,'golem').setInteractive();
   
-  golemimage.on('pointerdown', function (pointer) {
+  // golemimage.on('pointerdown', function (pointer) {
 
-    this.setTint(0xff0000);
-    rotateImage();
-  });
+  //   this.setTint(0xff0000);
+  //   rotateImage();
+  // });
 
-  golemimage.on('pointerout', function (pointer) {
+  // golemimage.on('pointerout', function (pointer) {
 
-    this.clearTint();
-  });
+  //   this.clearTint();
+  // });
 
-  golemimage.on('pointerup', function (pointer) {
+  // golemimage.on('pointerup', function (pointer) {
 
-    this.clearTint();
-  });
+  //   this.clearTint();
+  // });
 
-  lightbulb = this.add.sprite(200,200,'lightbulb').setInteractive();
+  // lightbulb = this.add.sprite(200,200,'lightbulb').setInteractive();
 
-  lightbulb.on('pointerdown', function (pointer) {
-    clickedBulb();
-  });
+  // lightbulb.on('pointerdown', function (pointer) {
+  //   clickedBulb();
+  // });
 
+
+  // Create the brass vial frame and its properties
   var vialText = this.add.text(350, 250, '', { font: '16px Courier', tint: '#0xb19d12'});
   var vial = this.add.image(300, 300, 'vial');
   vial.setDataEnabled();
   vial.data.set('name', 'Vial of Substance');
   vial.data.set('capacity', 50);
   vial.data.set('rate', 1);
+  vialRect = new Phaser.Geom.Rectangle(250, 200, 300, 200)
+  vialGraphics = this.add.graphics({ fillStyle: { color: 0x0000ff } });
+  vialGraphics.fillRectShape(vialRect);
 
   vialText.setText([
     'Name: ' + vial.data.get('name'),
     'Capacity: ' + vial.data.get('capacity'),
     'Fill Rate: ' + vial.data.get('rate')
   ]); 
+
+
 }
 
 function update ()
