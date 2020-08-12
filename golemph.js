@@ -93,8 +93,8 @@ function update ()
       'y: ' + pointer.y    
     ]);
 
-    vialRect.setAlpha(vialTopAlpha, vialTopAlpha, 1, 1);
-    vialTopAlpha -= 0.1;
+    vialGraphics.setAlpha(vialTopAlpha, vialTopAlpha, 1, 1);
+    vialTopAlpha = vialTopAlpha - 0.1;
 
     timeOfLastUpdate = Date.now();
     console.log('Update fired:' + Date.now())
