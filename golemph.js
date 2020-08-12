@@ -93,7 +93,7 @@ function update ()
       'y: ' + pointer.y    
     ]);
 
-    vialGraphics.setAlpha(vialTopAlpha, vialTopAlpha, 1, 1);
+    vialRect.setAlpha(vialTopAlpha, vialTopAlpha, 1, 1);
     vialTopAlpha -= 0.1;
 
     timeOfLastUpdate = Date.now();
