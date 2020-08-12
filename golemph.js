@@ -12,6 +12,8 @@ var config = {
 
 var game = new Phaser.Game(config);
 
+var debug = true;
+
 var mdText;
 var vial;
 
@@ -20,6 +22,7 @@ function preload ()
   this.load.image('golem', 'assets/golem-1.jpg');  
   this.load.image('lightbulb', 'assets/light.gif');
   this.load.image('vial', 'assets/brass-vial-border.png');
+  this.load.image('substance', 'assets/substance.gif');
 }
 
 function create ()
@@ -57,17 +60,19 @@ function create ()
   vial.data.set('name', 'Vial of Substance');
   vial.data.set('capacity', 50);
   vial.data.set('rate', 1);
-  vialRect = new Phaser.Geom.Rectangle(50, 140, 200, 320)
-  vialGraphics = this.add.graphics({ fillStyle: { color: 0x0000ff } });
-  vialGraphics.fillRectShape(vialRect);
-
+  
   vialText.setText([
     'Name: ' + vial.data.get('name'),
     'Capacity: ' + vial.data.get('capacity'),
     'Fill Rate: ' + vial.data.get('rate')
   ]); 
 
-  mdText = this.add.text(10, 10, 'Move the mouse', { font: '16px Courier', fill: '#00ff00' });
+  this.substanceMeter = this.add.image(150, 300, 'substance');
+  this.substanceMeter.setOrigin(1,1);
+  this.meter.scaleY = 0;
+
+
+  if(debug){ mdText = this.add.text(10, 10, 'Move the mouse', { font: '16px Courier', fill: '#00ff00' }); }
 
 }
 
