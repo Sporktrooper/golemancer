@@ -15,7 +15,7 @@ var golemimage;
 var dummytext = "";
 
 var ticks = 0;
-var tock = 1000; // ms between full update cycles
+var updateInterval = 1000; // ms between full update cycles
 var timeSinceLastUpdate;
 var timeOfLastUpdate = Date.now();
 
@@ -84,7 +84,7 @@ function update ()
   // rotateImage();
   // debugText();
 
-  if(Date.now() > (timeOfLastUpdate + tock)){
+  if(Date.now() > (timeOfLastUpdate + updateInterval)){
 
     var pointer = this.input.activePointer;
 
