@@ -95,8 +95,9 @@ function update ()
 
     vialGraphics.setAlpha(vialTopAlpha, vialTopAlpha, 1, 1);
     vialTopAlpha -= 0.01;
-    
+
     timeOfLastUpdate = Date.Now();
+    console.log('Update fired: ' + Date.Now());
 
   } else { 
 
