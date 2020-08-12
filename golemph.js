@@ -13,7 +13,12 @@ var config = {
 var game = new Phaser.Game(config);
 var golemimage;
 var dummytext = "";
+
 var ticks = 0;
+var tock = 500; // ms between full update cycles
+var timeSinceLastUpdate;
+var timeOfLastUpdate;
+
 var hourglass = Date.now();
 var mdText;
 var vialTopAlpha = 1;
@@ -78,15 +83,27 @@ function update ()
 {
   // rotateImage();
   // debugText();
-  var pointer = this.input.activePointer;
 
-  mdText.setText([
-    'x: ' + pointer.x,
-    'y: ' + pointer.y    
-  ]);
+  if(Date.Now() > (timeOfLastUpdate + tock)){
 
-  vialGraphics.setAlpha(vialTopAlpha, vialTopAlpha, 1, 1);
-  vialTopAlpha -= 0.01;
+    var pointer = this.input.activePointer;
+
+    mdText.setText([
+      'x: ' + pointer.x,
+      'y: ' + pointer.y    
+    ]);
+
+    vialGraphics.setAlpha(vialTopAlpha, vialTopAlpha, 1, 1);
+    vialTopAlpha -= 0.01;
+    
+    timeOfLastUpdate = Date.Now();
+
+  } else { 
+
+    
+
+  }
+
 }
 
 function debugText(){
