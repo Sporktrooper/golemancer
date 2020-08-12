@@ -20,7 +20,7 @@ function preload ()
 {
   this.load.image('golem', 'assets/golem-1.jpg');  
   this.load.image('lightbulb', 'assets/light.gif');
-  this.load.image('vial', 'assets/rectangle.png');
+  this.load.image('vial', 'assets/brass-vial-border.png');
 }
 
 function create ()
