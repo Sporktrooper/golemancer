@@ -101,7 +101,7 @@ function update ()
 
   } else { 
 
-    console.log('skipped update');
+    // console.log('skipped update');
 
   }
 
