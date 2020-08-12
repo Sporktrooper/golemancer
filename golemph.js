@@ -17,7 +17,7 @@ var dummytext = "";
 var ticks = 0;
 var tock = 500; // ms between full update cycles
 var timeSinceLastUpdate;
-var timeOfLastUpdate;
+var timeOfLastUpdate = Date.now();
 
 var hourglass = Date.now();
 var mdText;
@@ -101,7 +101,7 @@ function update ()
 
   } else { 
 
-    
+    console.log('skipped update');
 
   }
 
