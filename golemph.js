@@ -59,7 +59,7 @@ function create ()
   vial.setDataEnabled();
   vial.data.set('name', 'Vial of Substance');
   vial.data.set('capacity', 50);
-  vial.data.set('rate', 1);
+  vial.data.set('rate', vialTopAlpha);
   vialRect = new Phaser.Geom.Rectangle(50, 140, 200, 320)
   vialGraphics = this.add.graphics({ fillStyle: { color: 0x0000ff } });
   vialGraphics.fillRectShape(vialRect);
@@ -86,7 +86,7 @@ function update ()
   ]);
 
   vialGraphics.setAlpha(vialTopAlpha, vialTopAlpha, 1, 1);
-  vialTopAlpha -= 0.0001;
+  vialTopAlpha -= 0.01;
 }
 
 function debugText(){
