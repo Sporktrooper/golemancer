@@ -67,12 +67,12 @@ function create ()
     'Fill Rate: ' + vial.data.get('rate')
   ]); 
 
-  this.substanceMeter = this.add.image(150, 300, 'substance');
+  this.substanceMeter = this.add.image(300, 300, 'substance');
   this.substanceMeter.setOrigin(1,1);
-  this.meter.scaleY = 0;
+  this.substanceMeter.scaleY = 0;
 
 
-  if(debug){ mdText = this.add.text(10, 10, 'Move the mouse', { font: '16px Courier', fill: '#00ff00' }); }
+  if(debug == true){ mdText = this.add.text(10, 10, 'Move the mouse', { font: '16px Courier', fill: '#00ff00' }); }
 
 }
 
