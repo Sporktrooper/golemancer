@@ -15,7 +15,7 @@ var golemimage;
 var dummytext = "";
 
 var ticks = 0;
-var tock = 500; // ms between full update cycles
+var tock = 1000; // ms between full update cycles
 var timeSinceLastUpdate;
 var timeOfLastUpdate = Date.now();
 
