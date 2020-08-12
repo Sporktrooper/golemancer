@@ -15,6 +15,7 @@ var golemimage;
 var dummytext = "";
 var ticks = 0;
 var hourglass = Date.now();
+var mdText;
 
 function preload ()
 {
@@ -68,13 +69,20 @@ function create ()
     'Fill Rate: ' + vial.data.get('rate')
   ]); 
 
+  mdText = this.add.text(10, 10, 'Move the mouse', { font: '16px Courier', fill: '#00ff00' });
 
 }
 
 function update ()
 {
   // rotateImage();
-  debugText();
+  // debugText();
+  var pointer = this.input.activePointer;
+
+  mdText.setText([
+    'x: ' + pointer.x,
+    'y: ' + pointer.y    
+  ]);
 }
 
 function debugText(){
