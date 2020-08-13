@@ -94,9 +94,9 @@ function update ()
     'y: ' + pointer.y    
   ]);
 
-  this.substanceMeter.scaleY = this.substanceMeter.fillQty;
-  if(this.substanceMeter.fillQty <= 1){
-    this.substanceMeter.fillQty += 0.001
+  substanceMeter.scaleY = substanceMeter.fillQty;
+  if(substanceMeter.fillQty <= 1){
+    substanceMeter.fillQty += 0.001
     console.log(substanceMeter.fillQty);
   }
 
