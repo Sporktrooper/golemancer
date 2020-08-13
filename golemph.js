@@ -68,7 +68,7 @@ function create ()
     'Fill Rate: ' + vial.data.get('rate')
   ]); 
 
-  this.substanceMeter = this.add.image(300, 300, 'substance');
+  this.substanceMeter = this.add.image(250, 460, 'substance');
   this.substanceMeter.setOrigin(1,1);
   this.substanceMeter.scaleY = vial.fillQty;
 
