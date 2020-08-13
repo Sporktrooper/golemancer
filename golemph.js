@@ -101,7 +101,7 @@ function update ()
     'y: ' + pointer.y    
   ]);
 
-  substanceMeter.scaleY = vial.fillQty;
+  this.substanceMeter.scaleY = vial.fillQty;
   if(vial.fillQty <= 10){
     vial.fillQty += 0.05
   }
