@@ -60,6 +60,7 @@ function create ()
   vial.data.set('name', 'Vial of Substance');
   vial.data.set('capacity', 50);
   vial.data.set('rate', 1);
+  vial.fillQty = 0;
   
   vialText.setText([
     'Name: ' + vial.data.get('name'),
@@ -69,7 +70,7 @@ function create ()
 
   this.substanceMeter = this.add.image(300, 300, 'substance');
   this.substanceMeter.setOrigin(1,1);
-  this.substanceMeter.scaleY = 0;
+  this.substanceMeter.scaleY = vial.fillQty;
 
 
   if(debug == true){ mdText = this.add.text(10, 10, 'Move the mouse', { font: '16px Courier', fill: '#00ff00' }); }
@@ -100,7 +101,10 @@ function update ()
     'y: ' + pointer.y    
   ]);
 
-
+  substanceMeter.scaleY = vial.fillQty;
+  if(vial.fillQty <= 10){
+    vial.fillQty += 0.05
+  }
 
 }
 
