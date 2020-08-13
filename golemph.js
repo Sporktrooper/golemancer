@@ -68,7 +68,7 @@ function create ()
   //   'Fill Rate: ' + vial.data.get('rate')
   // ]); 
 
-  this.substanceMeter = this.add.image(150, 530, 'grayBar');
+  this.substanceMeter = this.add.image(120, 540, 'grayBar');
   this.substanceMeter.setTint('0x3333aa');
   this.substanceMeter.setOrigin(1,1);
   this.substanceMeter.fillQty = 0;
