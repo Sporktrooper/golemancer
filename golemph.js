@@ -23,6 +23,8 @@ function preload ()
   this.load.image('lightbulb', 'assets/light.gif');
   this.load.image('vial', 'assets/brass-vial-border.png');
   this.load.image('substance', 'assets/substance.gif');
+  this.load.image('grayBar', 'assets/grayBar.gif');
+  this.load.image('grayBorder', 'assets/grayBorder.gif');
 }
 
 function create ()
@@ -68,9 +70,13 @@ function create ()
     'Fill Rate: ' + vial.data.get('rate')
   ]); 
 
-  this.substanceMeter = this.add.image(250, 465, 'substance');
+  this.substanceMeter = this.add.image(250, 465, 'grayBar');
+  this.substanceMeter.setTint('0x3333aa');
   this.substanceMeter.setOrigin(1,1);
   this.substanceMeter.scaleY = vial.fillQty;
+
+  this.substanceMeterBorder = this.add.image(250,465, 'grayBorder');
+  this.substanceMeterBorder.setTint('0xb19d12')
 
 
   if(debug == true){ mdText = this.add.text(10, 10, 'Move the mouse', { font: '16px Courier', fill: '#00ff00' }); }
@@ -79,20 +85,6 @@ function create ()
 
 function update ()
 {
-  // rotateImage();
-  // debugText();
-
-  // if(Date.now() > (timeOfLastUpdate + updateInterval)){
-
-
-  //   timeOfLastUpdate = Date.now();
-  //   console.log('Update fired:' + Date.now())
-
-  // } else { 
-
-  //   // console.log('skipped update');
-
-  // }
 
   var pointer = this.input.activePointer;
 
@@ -108,6 +100,9 @@ function update ()
   }
 
 }
+
+
+// OLD SHIT, kept for reference
 
 function debugText(){
   ticks++;
