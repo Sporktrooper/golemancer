@@ -95,7 +95,7 @@ function update ()
 
   this.substanceMeter.scaleY = this.substanceMeter.fillQty;
   if(this.substanceMeter.fillQty <= 1){
-    this.substanceMeter.fillQty += 0.05
+    this.substanceMeter.fillQty += 0.001
     console.log(substanceMeter.fillQty);
   }
 
