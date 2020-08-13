@@ -73,7 +73,7 @@ function create ()
   substanceMeter.setTint('0x3333aa');
   substanceMeter.setOrigin(1,1);
   substanceMeter.fillQty = 0;
-  substanceMeter.scaleY = this.substanceMeter.fillQty;
+  substanceMeter.scaleY = substanceMeter.fillQty;
 
   this.substanceMeterBorder = this.add.image(130,550, 'grayBorder');
   this.substanceMeterBorder.setOrigin(1,1);
