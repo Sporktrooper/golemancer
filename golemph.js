@@ -72,7 +72,7 @@ function create ()
   this.substanceMeter = this.add.image(150, 500, 'grayBar');
   this.substanceMeter.setTint('0x3333aa');
   this.substanceMeter.setOrigin(1,1);
-  this.substanceMeter.scaleY = vial.fillQty;
+  this.substanceMeter.scaleY = this.vial.fillQty;
 
   this.substanceMeterBorder = this.add.image(130,520, 'grayBorder');
   this.substanceMeterBorder.setOrigin(1,1);
