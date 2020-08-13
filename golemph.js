@@ -15,7 +15,7 @@ var game = new Phaser.Game(config);
 var debug = true;
 var mdText;
 
-var substanceMeter;
+var substanceMeter = {};
 
 function preload ()
 {
