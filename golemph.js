@@ -70,10 +70,10 @@ function create ()
   // ]); 
 
   substanceMeter = this.add.image(120, 540, 'grayBar');
-  this.substanceMeter.setTint('0x3333aa');
-  this.substanceMeter.setOrigin(1,1);
+  substanceMeter.setTint('0x3333aa');
+  substanceMeter.setOrigin(1,1);
   substanceMeter.fillQty = 0;
-  this.substanceMeter.scaleY = this.substanceMeter.fillQty;
+  substanceMeter.scaleY = this.substanceMeter.fillQty;
 
   this.substanceMeterBorder = this.add.image(130,550, 'grayBorder');
   this.substanceMeterBorder.setOrigin(1,1);
