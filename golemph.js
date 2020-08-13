@@ -16,59 +16,22 @@ var debug = true;
 var mdText;
 
 var substanceMeter = {};
+var transmutationArrow = {};
 
 function preload ()
 {
   this.load.image('golem', 'assets/golem-1.jpg');  
   this.load.image('lightbulb', 'assets/light.gif');
-  // this.load.image('vial', 'assets/brass-vial-border.png');
-  // this.load.image('substance', 'assets/substance.gif');
   this.load.image('grayBar', 'assets/grayBar.gif');
   this.load.image('grayBorder', 'assets/grayBorder.gif');
+  this.load.image('arrow', 'assets/arrow.gif');
 }
 
 function create ()
 {
 
-  // golemimage = this.add.sprite(400,300,'golem').setInteractive();
+  if(debug == true){ mdText = this.add.text(10, 10, 'Move the mouse', { font: '16px Courier', fill: '#00ff00' }); }
   
-  // golemimage.on('pointerdown', function (pointer) {
-
-  //   this.setTint(0xff0000);
-  //   rotateImage();
-  // });
-
-  // golemimage.on('pointerout', function (pointer) {
-
-  //   this.clearTint();
-  // });
-
-  // golemimage.on('pointerup', function (pointer) {
-
-  //   this.clearTint();
-  // });
-
-  // lightbulb = this.add.sprite(200,200,'lightbulb').setInteractive();
-
-  // lightbulb.on('pointerdown', function (pointer) {
-  //   clickedBulb();
-  // });
-
-
-  // Create the brass vial frame and its properties
-  // var vialText = this.add.text(350, 250, '', { font: '16px Courier', tint: '#0xb19d12'});
-  // this.vial.setDataEnabled();
-  // this.vial.data.set('name', 'Vial of Substance');
-  // this.vial.data.set('capacity', 50);
-  // this.vial.data.set('rate', 1);
-  // this.vial.fillQty = 0;
-  
-  // vialText.setText([
-  //   'Name: ' + vial.data.get('name'),
-  //   'Capacity: ' + vial.data.get('capacity'),
-  //   'Fill Rate: ' + vial.data.get('rate')
-  // ]); 
-
   substanceMeter = this.add.image(120, 540, 'grayBar');
   substanceMeter.setTint('0x3333aa');
   substanceMeter.setOrigin(1,1);
@@ -79,8 +42,7 @@ function create ()
   this.substanceMeterBorder.setOrigin(1,1);
   this.substanceMeterBorder.setTint('0xb19d12')
 
-
-  if(debug == true){ mdText = this.add.text(10, 10, 'Move the mouse', { font: '16px Courier', fill: '#00ff00' }); }
+  transmutationArrow = this.add.image(240, 290, 'arrow');
 
 }
 
