@@ -102,7 +102,7 @@ function update ()
   ]);
 
   this.substanceMeter.scaleY = vial.fillQty;
-  if(vial.fillQty <= 5){
+  if(vial.fillQty <= 1){
     vial.fillQty += 0.05
   }
 
