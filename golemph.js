@@ -21,8 +21,8 @@ function preload ()
 {
   this.load.image('golem', 'assets/golem-1.jpg');  
   this.load.image('lightbulb', 'assets/light.gif');
-  this.load.image('vial', 'assets/brass-vial-border.png');
-  this.load.image('substance', 'assets/substance.gif');
+  // this.load.image('vial', 'assets/brass-vial-border.png');
+  // this.load.image('substance', 'assets/substance.gif');
   this.load.image('grayBar', 'assets/grayBar.gif');
   this.load.image('grayBorder', 'assets/grayBorder.gif');
 }
