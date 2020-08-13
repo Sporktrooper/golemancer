@@ -15,7 +15,6 @@ var game = new Phaser.Game(config);
 var debug = true;
 
 var mdText;
-var vial ;
 
 function preload ()
 {
@@ -69,13 +68,13 @@ function create ()
   //   'Fill Rate: ' + vial.data.get('rate')
   // ]); 
 
-  this.substanceMeter = this.add.image(150, 500, 'grayBar');
+  this.substanceMeter = this.add.image(150, 530, 'grayBar');
   this.substanceMeter.setTint('0x3333aa');
   this.substanceMeter.setOrigin(1,1);
   this.substanceMeter.fillQty = 0;
   this.substanceMeter.scaleY = this.substanceMeter.fillQty;
 
-  this.substanceMeterBorder = this.add.image(130,520, 'grayBorder');
+  this.substanceMeterBorder = this.add.image(130,550, 'grayBorder');
   this.substanceMeterBorder.setOrigin(1,1);
   this.substanceMeterBorder.setTint('0xb19d12')
 
