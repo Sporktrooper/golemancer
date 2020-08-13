@@ -68,7 +68,7 @@ function create ()
     'Fill Rate: ' + vial.data.get('rate')
   ]); 
 
-  this.substanceMeter = this.add.image(250, 460, 'substance');
+  this.substanceMeter = this.add.image(250, 465, 'substance');
   this.substanceMeter.setOrigin(1,1);
   this.substanceMeter.scaleY = vial.fillQty;
 
@@ -102,7 +102,7 @@ function update ()
   ]);
 
   this.substanceMeter.scaleY = vial.fillQty;
-  if(vial.fillQty <= 10){
+  if(vial.fillQty <= 5){
     vial.fillQty += 0.05
   }
 
