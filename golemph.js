@@ -57,7 +57,6 @@ function create ()
 
   // Create the brass vial frame and its properties
   var vialText = this.add.text(350, 250, '', { font: '16px Courier', tint: '#0xb19d12'});
-  vial = this.add.image(150, 300, 'vial');
   vial.setDataEnabled();
   vial.data.set('name', 'Vial of Substance');
   vial.data.set('capacity', 50);
