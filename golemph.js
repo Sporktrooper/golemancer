@@ -70,12 +70,13 @@ function create ()
     'Fill Rate: ' + vial.data.get('rate')
   ]); 
 
-  this.substanceMeter = this.add.image(250, 465, 'grayBar');
+  this.substanceMeter = this.add.image(150, 500, 'grayBar');
   this.substanceMeter.setTint('0x3333aa');
   this.substanceMeter.setOrigin(1,1);
   this.substanceMeter.scaleY = vial.fillQty;
 
-  this.substanceMeterBorder = this.add.image(250,465, 'grayBorder');
+  this.substanceMeterBorder = this.add.image(130,520, 'grayBorder');
+  this.substanceMeterBorder.setOrigin(1,1);
   this.substanceMeterBorder.setTint('0xb19d12')
 
 
