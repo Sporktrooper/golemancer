@@ -46,7 +46,7 @@ function create ()
   substanceMeterBorder.setTint('0xb19d12');
 
 
-  transmutationArrow = this.add.sprite(240, 290, 'arrow-button').setInteractive();
+  transmutationArrow = this.add.sprite(240, 360, 'arrow-button').setInteractive();
   transmutationArrow.setOrigin(0.5, 0.5);
   transmutationArrow.angle = 90;
   transmutationArrow.setTint('0xff0000');
