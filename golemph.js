@@ -24,7 +24,7 @@ function preload ()
   this.load.image('lightbulb', 'assets/light.gif');
   this.load.image('grayBar', 'assets/grayBar.gif');
   this.load.image('grayBorder', 'assets/grayBorder.gif');
-  this.load.image('arrow', 'assets/arrow.gif');
+  this.load.image('arrow-button', 'assets/arrow-button.png');
 }
 
 function create ()
