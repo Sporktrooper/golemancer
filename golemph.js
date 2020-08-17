@@ -37,12 +37,21 @@ function create ()
   substanceMeter.setOrigin(1,1);
   substanceMeter.fillQty = 0;
   substanceMeter.scaleY = substanceMeter.fillQty;
+  substanceMeter.capacity = 50;
 
-  this.substanceMeterBorder = this.add.image(130,550, 'grayBorder');
-  this.substanceMeterBorder.setOrigin(1,1);
-  this.substanceMeterBorder.setTint('0xb19d12')
+  substanceMeterBorder = this.add.image(130,550, 'grayBorder');
+  substanceMeterBorder.setOrigin(1,1);
+  substanceMeterBorder.setTint('0xb19d12');
 
-  transmutationArrow = this.add.image(240, 290, 'arrow');
+  transmutationArrow = this.add.sprite(240, 290, 'arrow').setInteractive();
+  transmutationArrow.on('pointerdown', function(pointer){
+    this.setTint('0xffffff');
+    transfer(substanceMeter.fillQty * 
+  });
+
+  transmutationArrow.on('pointerup', function(pointer){
+    this.clearTint();
+  });
 
 }
 
@@ -120,8 +129,11 @@ function clickedBulb(){
   }
 }
 
-
-
+function transfer(substanceSource, substanceQty, substanceDestination){
+  // substanceSource: the container that is providing the substance
+  // substanceQty: container capacity * scaleY of fill. ex: 0.89 * 50 = 44.5
+  // substanceDestination: the new container for the substance after transfer
+}
 
 
 
