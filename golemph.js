@@ -33,9 +33,9 @@ function create ()
 
   
   
-  substanceMeter = this.add.image(120, 360, 'grayBar');
+  substanceMeter = this.add.image(120, 610, 'grayBar');
   substanceMeter.setTint('0x3333aa');
-  substanceMeter.setOrigin(0.5,0.5);
+  substanceMeter.setOrigin(0.5,1);
   substanceMeter.fillQty = 0;
   substanceMeter.scaleY = substanceMeter.fillQty;
   substanceMeter.capacity = 50;
