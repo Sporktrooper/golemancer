@@ -122,7 +122,7 @@ function toggleButton(button){
 
       button.state = true;
       button.setTint(0x00ff00);
-      console.log(lightbulb.state);
+      console.log(button.state);
 
       break;
 
