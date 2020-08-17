@@ -34,12 +34,12 @@ function create ()
   
   substanceMeter = this.add.image(120, 540, 'grayBar');
   substanceMeter.setTint('0x3333aa');
-  substanceMeter.setOrigin(1,1);
+  substanceMeter.setOrigin(0.5,0.5);
   substanceMeter.fillQty = 0;
   substanceMeter.scaleY = substanceMeter.fillQty;
 
   this.substanceMeterBorder = this.add.image(130,550, 'grayBorder');
-  this.substanceMeterBorder.setOrigin(1,1);
+  this.substanceMeterBorder.setOrigin(0.5,0.5);
   this.substanceMeterBorder.setTint('0xb19d12')
 
   transmutationArrow = this.add.image(240, 290, 'arrow');
