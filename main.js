@@ -1,4 +1,3 @@
-
 window.addEventListener('load', function () {
 
 	var game = new Phaser.Game({
@@ -27,5 +26,3 @@ class Boot extends Phaser.Scene {
 		
 		this.scene.start("Level");
 	}
-
-}

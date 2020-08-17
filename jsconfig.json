@@ -5,4 +5,12 @@
     "compilerOptions": {
         "target": "esnext"
     }
+
+{
+    "exclude": [
+        "lib/**"
+    ],
+    "compilerOptions": {
+        "target": "esnext"
+    }
 }

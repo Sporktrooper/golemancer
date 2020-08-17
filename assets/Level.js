@@ -8,9 +8,6 @@ class Level extends Phaser.Scene {
 	constructor() {
 		super("Level");
 		
-		/* START-USER-CTR-CODE */
-		// Write your code here.
-		/* END-USER-CTR-CODE */
 	}
 	
 	create() {
