@@ -51,7 +51,7 @@ function create ()
   transmutationArrow.angle = 90;
   transmutationArrow.setTint('0xff0000');
   transmutationArrow.on('pointerdown', function(pointer){
-    if(this.tintTopLeft = 0xff0000){ this.setTint('0xffffff') 
+    if(this.tintTopLeft = 0xff0000){ this.setTint('0xffffff') }
     else { this.setTint('0x00ff00') };
     };
     //transfer(substanceMeter.fillQty * 
