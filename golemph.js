@@ -48,7 +48,7 @@ function create ()
   transmutationArrow = this.add.sprite(240, 290, 'arrow-button').setInteractive();
   transmutationArrow.on('pointerdown', function(pointer){
     this.setTint('0xffffff');
-    transfer(substanceMeter.fillQty * 
+    //transfer(substanceMeter.fillQty * 
   });
 
   transmutationArrow.on('pointerup', function(pointer){
