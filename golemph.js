@@ -17,7 +17,7 @@ var mdText;
 
 var substanceMeter = {};
 var transmutationArrow = {};
-transmutationArrow.state = false;
+// transmutationArrow.state = false;
 
 function preload ()
 {
@@ -50,11 +50,9 @@ function create ()
   transmutationArrow.setOrigin(0.5, 0.5);
   transmutationArrow.angle = 90;
   transmutationArrow.setTint('0xff0000');
+  transmutationArrow.state = false;
   transmutationArrow.on('pointerdown', function(pointer){
-    if(this.tintTopLeft = 0xff0000){ this.setTint('0xffffff') }
-    else { this.setTint('0x00ff00') };
-    };
-    //transfer(substanceMeter.fillQty * 
+    toggleButton(transmutationArrow);
   });
 
   transmutationArrow.on('pointerup', function(pointer){
@@ -105,16 +103,16 @@ function rotateImage(){
   golemimage.angle += 10;
 }
 
-function toggleButton(){
-  switch (lightbulb.state){
+function toggleButton(button){
+  switch (button.state){
 
     case true:
 
       // Lightbulb is on
 
-      lightbulb.state = false;
-      lightbulb.setTint(0xff0000);
-      console.log(lightbulb.state);
+      button.state = false;
+      button.setTint(0xff0000);
+      console.log(button.state);
 
       break;
 
@@ -122,8 +120,8 @@ function toggleButton(){
 
       // Lightbulb is off
 
-      lightbulb.state = true;
-      lightbulb.setTint(0x00ff00);
+      button.state = true;
+      button.setTint(0x00ff00);
       console.log(lightbulb.state);
 
       break;
@@ -132,9 +130,9 @@ function toggleButton(){
 
       // Lightbulb state undefined, turn it on
 
-      lightbulb.state = true;
-      lightbulb.setTint(0x00ff00);
-      console.log(lightbulb.state);
+      button.state = true;
+      button.setTint(0x00ff00);
+      console.log(button.state);
       // console.log("dun goofed");
   }
 }
