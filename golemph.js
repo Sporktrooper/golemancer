@@ -62,7 +62,7 @@ function create ()
 function update ()
 {
   var pointer = this.input.activePointer;
-  mouseCoordDisplay(activePointer);
+  mouseCoordDisplay(pointer);
 
 
   substanceMeter.scaleY = substanceMeter.fillQty;
@@ -73,7 +73,7 @@ function update ()
 
 }
 
-function mouseCoordDisplay(activePointer){
+function mouseCoordDisplay(pointer){
 
     mdText.setText([
       'x: ' + pointer.x,
