@@ -61,13 +61,8 @@ function create ()
 
 function update ()
 {
+  mouseCoordDisplay();
 
-  var pointer = this.input.activePointer;
-
-  mdText.setText([
-    'x: ' + pointer.x,
-    'y: ' + pointer.y    
-  ]);
 
   substanceMeter.scaleY = substanceMeter.fillQty;
   if(substanceMeter.fillQty <= 1){
@@ -76,6 +71,31 @@ function update ()
   }
 
 }
+
+function mouseCoordDisplay(){
+  var pointer = this.input.activePointer;
+
+    mdText.setText([
+      'x: ' + pointer.x,
+      'y: ' + pointer.y    
+  ]);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // OLD SHIT, kept for reference
@@ -138,8 +158,6 @@ function transfer(substanceSource, substanceQty, substanceDestination){
   // substanceQty: container capacity * scaleY of fill. ex: 0.89 * 50 = 44.5
   // substanceDestination: the new container for the substance after transfer
 }
-
-
 
 
 
