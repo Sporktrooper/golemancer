@@ -1,7 +1,7 @@
 var config = {
     type: Phaser.AUTO,
-    width: 800,
-    height: 600,
+    width: 1280,
+    height: 720,
     fps: { target: 30 },
     scene: {
         preload: preload,
@@ -30,7 +30,7 @@ function preload ()
 function create ()
 {
 
-  if(debug == true){ mdText = this.add.text(10, 10, 'Move the mouse', { font: '16px Courier', fill: '#00ff00' }); }
+  
   
   substanceMeter = this.add.image(120, 540, 'grayBar');
   substanceMeter.setTint('0x3333aa');
@@ -43,6 +43,8 @@ function create ()
   this.substanceMeterBorder.setTint('0xb19d12')
 
   transmutationArrow = this.add.image(240, 290, 'arrow');
+
+  if(debug == true){ mdText = this.add.text(10, 10, 'Move the mouse', { font: '16px Courier', fill: '#00ff00' }); }
 
 }
 
