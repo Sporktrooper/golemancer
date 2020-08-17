@@ -73,6 +73,45 @@ function update ()
 
 }
 
+
+function toggleButton(button){
+  switch (button.state){
+
+    case true:
+
+      // button is on
+
+      button.state = false;
+      button.setTint(0xff0000);
+
+      break;
+
+    case false:
+
+      // button is off
+
+      button.state = true;
+      button.setTint(0x00ff00);
+
+      break;
+
+    default: 
+
+      // button state undefined, turn it on
+
+      button.state = true;
+      button.setTint(0x00ff00);
+  }
+}
+
+function transfer(substanceSource, substanceQty, substanceDestination){
+  // substanceSource: the container that is providing the substance
+  // substanceQty: container capacity * scaleY of fill. ex: 0.89 * 50 = 44.5
+  // substanceDestination: the new container for the substance after transfer
+}
+
+// DEBUG FUNCTIONS
+
 function mouseCoordDisplay(pointer){
 
     mdText.setText([
@@ -80,8 +119,6 @@ function mouseCoordDisplay(pointer){
       'y: ' + pointer.y    
   ]);
 }
-
-
 
 
 
@@ -118,47 +155,6 @@ function debugText(){
 function rotateImage(){
   golemimage.angle += 10;
 }
-
-function toggleButton(button){
-  switch (button.state){
-
-    case true:
-
-      // Lightbulb is on
-
-      button.state = false;
-      button.setTint(0xff0000);
-      console.log(button.state);
-
-      break;
-
-    case false:
-
-      // Lightbulb is off
-
-      button.state = true;
-      button.setTint(0x00ff00);
-      console.log(button.state);
-
-      break;
-
-    default: 
-
-      // Lightbulb state undefined, turn it on
-
-      button.state = true;
-      button.setTint(0x00ff00);
-      console.log(button.state);
-      // console.log("dun goofed");
-  }
-}
-
-function transfer(substanceSource, substanceQty, substanceDestination){
-  // substanceSource: the container that is providing the substance
-  // substanceQty: container capacity * scaleY of fill. ex: 0.89 * 50 = 44.5
-  // substanceDestination: the new container for the substance after transfer
-}
-
 
 
 
