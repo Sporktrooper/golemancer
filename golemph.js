@@ -76,7 +76,7 @@ function update ()
   substanceMeter.scaleY = substanceMeter.fillQty;
   if(substanceMeter.fillQty <= 1){
     substanceMeter.fillQty += 0.001
-    if(debug == true){ console.log(substanceMeter.fillQty) };
+    // if(debug == true){ console.log(substanceMeter.fillQty) };
   }
 
 }
