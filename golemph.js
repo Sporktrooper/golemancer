@@ -17,6 +17,7 @@ var mdText;
 
 var substanceMeter = {};
 var transmutationArrow = {};
+transmutationArrow.state = false;
 
 function preload ()
 {
@@ -32,7 +33,7 @@ function create ()
 
   
   
-  substanceMeter = this.add.image(120, 540, 'grayBar');
+  substanceMeter = this.add.image(120, 360, 'grayBar');
   substanceMeter.setTint('0x3333aa');
   substanceMeter.setOrigin(0.5,0.5);
   substanceMeter.fillQty = 0;
@@ -40,7 +41,7 @@ function create ()
   substanceMeter.capacity = 50;
 
 
-  substanceMeterBorder = this.add.image(130,550, 'grayBorder');
+  substanceMeterBorder = this.add.image(120,360, 'grayBorder');
   substanceMeterBorder.setOrigin(0.5, 0.5);
   substanceMeterBorder.setTint('0xb19d12');
 
@@ -48,6 +49,7 @@ function create ()
   transmutationArrow = this.add.sprite(240, 290, 'arrow-button').setInteractive();
   transmutationArrow.setOrigin(0.5, 0.5);
   transmutationArrow.angle = 90;
+  transmutationArrow.setTint('0xff0000');
   transmutationArrow.on('pointerdown', function(pointer){
     this.setTint('0xffffff');
     //transfer(substanceMeter.fillQty * 
@@ -101,7 +103,7 @@ function rotateImage(){
   golemimage.angle += 10;
 }
 
-function clickedBulb(){
+function toggleButton(){
   switch (lightbulb.state){
 
     case true:
