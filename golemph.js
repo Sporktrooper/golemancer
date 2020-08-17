@@ -55,10 +55,6 @@ function create ()
     toggleButton(transmutationArrow);
   });
 
-  transmutationArrow.on('pointerup', function(pointer){
-    this.clearTint();
-  });
-
   if(debug == true){ mdText = this.add.text(10, 10, 'Move the mouse', { font: '16px Courier', fill: '#00ff00' }); }
 
 }
