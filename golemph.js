@@ -17,12 +17,11 @@ var mdText;
 
 var substanceMeter = {};
 var transmutationArrow = {};
+var fillArrow = {};
 // transmutationArrow.state = false;
 
 function preload ()
 {
-  this.load.image('golem', 'assets/golem-1.jpg');  
-  this.load.image('lightbulb', 'assets/light.gif');
   this.load.image('grayBar', 'assets/grayBar.gif');
   this.load.image('grayBorder', 'assets/grayBorder.gif');
   this.load.image('arrow-button', 'assets/arrow-button.png');
@@ -32,14 +31,14 @@ function create ()
 {
 
   
-  
+  // create the left meter
   substanceMeter = this.add.image(120, 610, 'grayBar');
   substanceMeter.setTint('0x3333aa');
   substanceMeter.setOrigin(0.5,1);
   substanceMeter.fillQty = 0;
   substanceMeter.scaleY = substanceMeter.fillQty;
-  substanceMeter.capacity = 50;
-
+  substanceMeter.liquidCapacity = 50;
+  substanceMeter.liquidContent = 0;
 
   substanceMeterBorder = this.add.image(120,360, 'grayBorder');
   substanceMeterBorder.setOrigin(0.5, 0.5);
@@ -53,6 +52,14 @@ function create ()
   transmutationArrow.state = false;
   transmutationArrow.on('pointerdown', function(pointer){
     toggleButton(transmutationArrow);
+  });
+
+  fillArrow = this.add.sprite(120, 440, 'arrow button').setInteractive();
+  fillArrow.setOrigin(0.5, 0.5);
+  fillArrow.setTint('0xff0000');
+  fillArrow.state = false;
+  fillArrow.on('pointerdown', function(pointer){
+    toggleButton(fillArrow);
   });
 
   if(debug == true){ mdText = this.add.text(10, 10, 'Move the mouse', { font: '16px Courier', fill: '#00ff00' }); }
@@ -110,7 +117,27 @@ function transfer(substanceSource, substanceQty, substanceDestination){
   // substanceDestination: the new container for the substance after transfer
 }
 
-// DEBUG FUNCTIONS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// DEBUG
 
 function mouseCoordDisplay(pointer){
 
