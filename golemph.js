@@ -45,7 +45,7 @@ function create ()
   substanceMeterBorder.setTint('0xb19d12');
 
 
-  transmutationArrow = this.add.sprite(240, 290, 'arrow').setInteractive();
+  transmutationArrow = this.add.sprite(240, 290, 'arrow-button').setInteractive();
   transmutationArrow.on('pointerdown', function(pointer){
     this.setTint('0xffffff');
     transfer(substanceMeter.fillQty * 
@@ -72,7 +72,7 @@ function update ()
   substanceMeter.scaleY = substanceMeter.fillQty;
   if(substanceMeter.fillQty <= 1){
     substanceMeter.fillQty += 0.001
-    console.log(substanceMeter.fillQty);
+    if(debug == true){ console.log(substanceMeter.fillQty) };
   }
 
 }
