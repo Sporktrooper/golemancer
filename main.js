@@ -26,3 +26,4 @@ class Boot extends Phaser.Scene {
 		
 		this.scene.start("Level");
 	}
+}
