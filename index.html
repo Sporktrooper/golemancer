@@ -1,11 +1,60 @@
 <!DOCTYPE html>
-<html>
-<title>Golemancer</title>
+<html lang="en">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
-    <script src="golemph.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Clicker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="clicker.css">
+  
+  <style>
+    
+    /* Style  */
+    
+  </style>
 </head>
 <body>
-
+  
+  <div id="game">
+    
+    <button id="clickyButton" onClick="clickButton(1)">Click</button>
+    <p>Number: <span id="number">0</span></p>
+    
+    <button id="cursorButton" onClick="buyCursor2()">Buy Cursor</button>
+    <p>Cursors: <span id="cursors">0</span></p>
+    <p>Cursor Cost: <span id="cursorCost">10</span></p>
+  
+  </div>
+  
+  
+  <div class="grid-container">
+    
+    <div class="grid-item"><div class="grid-label" id="a1">1</div></div>
+    <div class="grid-item"><div class="grid-label" id="b1">2</div></div>
+    <div class="grid-item"><div class="grid-label" id="c1">3</div></div>
+    <div class="grid-item"><div class="grid-label" id="a2">1</div></div>
+    <div class="grid-item"><div class="grid-label" id="b2">2</div></div>
+    <div class="grid-item"><div class="grid-label" id="c2">3</div></div>
+    <div class="grid-item"><div class="grid-label" id="a3">1</div></div>
+    <div class="grid-item"><div class="grid-label" id="b3">2</div></div>
+    <div class="grid-item"><div class="grid-label" id="c3">3</div></div>
+    <div class="grid-item"><div class="grid-label" id="a4">1</div></div>
+    <div class="grid-item"><div class="grid-label" id="b4">2</div></div>
+    <div class="grid-item"><div class="grid-label" id="c4">3</div></div>
+    
+  </div>
+  
+  <div id="player">@</div>
+  <div class="grid-container" id="map">
+  
+    <div class="grid-item"><div class="grid-label"></div></div>
+    
+  </div>
+  
+  <script src="clicker.js" type="text/javascript">
+    
+    /* JavaScript */
+    
+  </script>
 </body>
 </html>
