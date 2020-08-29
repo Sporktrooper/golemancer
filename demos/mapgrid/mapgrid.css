@@ -47,6 +47,11 @@
   border-radius: 10%;
 }
 
+.map-cell:hover {
+  border: 3px solid blue;
+  transition: 0.3s;
+}
+
 .map-cell[data-traversable=false]{
   background: #f00
 }

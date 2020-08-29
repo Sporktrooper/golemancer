@@ -18,7 +18,7 @@
   <div id="player">@</div>
   
   <div id="map-palette">
-    <div class="grid-item map-cell" data-traversable="true"><div class="grid-label"></div></div>
+    <div class="grid-item map-cell" data-traversable="true" onclick="mouseMove(this)"><div class="grid-label"></div></div>
     <div class="grid-item map-cell" data-traversable="false"><div class="grid-label"></div></div>
   </div>
     
@@ -27,6 +27,8 @@
     
     
   </div>
+  
+  <button id="button" onclick="console.log(this.id)">click</button>
   
   <script src="mapgrid.js" type="text/javascript">
     
