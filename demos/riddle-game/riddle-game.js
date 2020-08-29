@@ -8,7 +8,7 @@ function seizure(go) {
       setInterval(() => { 
         document.querySelector("#seizure").style.backgroundColor = collorrss();
         document.querySelector("#seizure").style.borderColor = collorrss();
-      },100);
+      },17);
             break;
       
     case "off":
