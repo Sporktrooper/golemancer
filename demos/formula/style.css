@@ -1,0 +1,40 @@
+#first {
+  background: #26d;
+  border: 1px solid #138;
+  
+  margin: 10px solid #074;
+  padding: 10px;
+}
+
+.grid-container {
+  background: #eb7;
+  padding-bottom: 10px;
+  
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  place-items: center;
+}
+
+.grid-item {
+  background: #ccf;
+  border: 1px solid #efe;
+  padding: 10px 10px;
+  text-align: center;
+}
+
+.header {
+  grid-column: 1 / span 3;
+}
+
+h1 {
+  text-align: center;
+}
+
+#riddle {
+  margin: 10px;
+  
+}
+
