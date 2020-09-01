@@ -17,29 +17,29 @@
   
   
   
+  
   <div id="first">
     <div class="grid-container">
       <div class="grid-item header">
         <h1>A riddle</h1><div id="riddle">You have two jugs. One holds exactly 3 gallons and the other 5 gallons of water. You have an unlimited supply of water. How do you fill 4 gallons of water into the five-gallon jug?</div>
       </div>
-      <div class="grid-item" id="5galjug">
-        <div>5 Gallon Jug</div>
-        <div>0 of 5</div>
-        <button id="dump5" onclick="alert('set dump 5')">Dump</button>
-        <button id="pour3" onclick="alert('set pour 3')">Pour into 3</button>
-      </div>
-      <div class="grid-item" id="controls">
-        Well<br>
-        <button id="fill5" onclick="fillContainer('jug5')">Fill 5 Gal</button>
-        <button id="fill5" onclick="alert('set fill 3')">Fill 3 Gal</button>
-      </div>
-      <div class="grid-item" id="3galjug">
-        <div>3 Gallon Jug</div>
-        <div>0 of 3</div>
-        <button id="pour5" onclick="alert('set pour 5')">Pour into 5</button>
-        <button id="dump3" onclick="alert('set dump 3')">Dump</button>
-      </div>
       
+      <div class="grid-item" id="jug5">
+        <div>5 Gallon Jug</div>
+        <div id="jug5Display">container uninitialized</div>
+        <button id="pour3" onclick="pour(jug5, jug3)">Pour into 3</button>
+        <button id="fill5" onclick="fillContainer(jug5)">Fill</button>
+        
+        <button id="dump5" onclick="dump(jug5)">Dump</button>
+      </div>
+     
+      <div class="grid-item" id="jug3">
+        <div>3 Gallon Jug</div>
+        <div id="jug3Display">container uninitialized</div>
+        <button id="pour5" onclick="pour(jug3, jug5)">Pour into 5</button>
+        <button id="fill3" onclick="fillContainer(jug3)">Fill</button>
+        <button id="dump3" onclick="dump(jug3)">Dump</button>
+      </div>
       
       
       
@@ -52,15 +52,7 @@
     
   </div> <!-- end of first -->
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   
   
   
@@ -70,5 +62,9 @@
     /* JavaScript */
     
   </script>
+  
+  
+  
+
 </body>
 </html>
