@@ -1,0 +1,53 @@
+h1 {
+  text-align: center;
+  font-family: monospace;
+}
+
+/*
+#pBarContainer {
+  border: 2px dashed red;
+  min-height: 500px;
+  margin: 50px;
+}
+*/
+
+/*
+.bar {
+  border: 1px solid blue;
+  width: 40px;
+  margin: auto;
+  margin-left: 5px;
+  margin-top: 5px;
+  min-height: 300px;
+  position: relative;
+}
+
+#bar1 {
+  border: 1px dotted green;
+  position: absolute;
+  background-color: aqua;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 100%;
+}*/
+
+#barHolder {
+  width: 100%;
+  background: grey;
+  height: 50px;
+}
+
+#bar1 {
+  width: 0%;
+  height: 100%;
+  background-color: green;
+}
+
+.btnTrue {
+  color: green;
+}
+
+.btnFalse {
+  color: red;
+}
