@@ -50,13 +50,11 @@
   transition: background 2s;
 }
 
-#textlog {
+#textLog {
   list-style: none;
   margin: 0px;
   padding: 0.5em 1em;
   color: rgba(220,180,10,0.9);
-  
-  transition: text 1s;
 }
 
 #buttons {
@@ -95,7 +93,6 @@
   
   user-select: none;
 }
-
 #powerLED {
   
   height: 0.3em;
@@ -111,30 +108,24 @@
   transition: all 1s linear;
   
 }
-
 .switchOff {
   background-image: linear-gradient(to right, rgb(255,255,255) , rgb(80,80,30));
 }
-
 .switchOn {
   background-image: linear-gradient(to left, rgb(255,255,255) , rgb(80,80,30));
   border: 10px solid red;
 }
-
 .gameOn {
   background-color: rgb(30, 18, 0);
 /*  background-color: rgb(45, 0, 255);*/
 }
-
 .gameOff {
   background-color: rgb(12, 12, 12);
 }
-
 .ledOff {
   background-color: rgb(100,16,16);
   box-shadow: none;
 }
-
 .ledOn {
   background-color: rgb(16, 192, 16);
   box-shadow: 0px 0px 20px 2px rgb(16, 192, 16);

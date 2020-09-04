@@ -1,25 +1,19 @@
-//collect elements
+// collect elements
 var game = document.querySelector("#game");
 var resetSwitch = document.querySelector("#reset");
 var powerLED = document.querySelector("#powerLED");
-
-function boot () {
-  
-  game.classList.remove("gameOff");
-  game.classList.add("gameOn");
-  // monitor on
-  
+var textLog = {
+  element: document.querySelector("#textLog"),
+  lineCount: document.querySelector("#textLog").childElementCount,
+  columns: 50,
   
 }
+textLog.lines = Array.from(textLog.element.children);
+textLog.lines.reverse();
 
-function kill () {
-  game.classList.remove("gameOn");
-  game.classList.add("gameOff");
-  // monitor off
-  
-  
-}
 
+
+// listen for input
 resetSwitch.addEventListener('click', function () {
   if (resetSwitch.classList.contains("switchOff")) {
     boot();
@@ -40,6 +34,23 @@ resetSwitch.addEventListener('click', function () {
   
 });
 
+function boot () {
+  
+  game.classList.remove("gameOff");
+  game.classList.add("gameOn");
+  // monitor on
+  
+  
+}
+
+function kill () {
+  game.classList.remove("gameOn");
+  game.classList.add("gameOff");
+  // monitor off
+  
+  
+}
+
 function toggleClass(element, cssClass) {
   let lmnt = element;
   
@@ -50,20 +61,21 @@ function toggleClass(element, cssClass) {
   }
 }
 
+function print(str) {
+  
+  // move everything up
+  for(i=textLog.lineCount-1;i>0;i--){
+    textLog.lines[i].innerHTML = textLog.lines[i].innerHTML;
+    console.log(textLog.lines[i].innerHTML);
+  }
+  
+  // write the new line
+  textLog.lines[0].innerHTML = str;
+  
+}
 
+// You found Opulent Microfiber Gloves of the Mechanical Keyboard Warrior, +5 kpm and 14% accuracy
 
-var testlmnt = document.querySelector("#test");
-console.log("None: " + testlmnt.classList);
-
-toggleClass(testlmnt,"glowing");
-
-console.log("On: " + testlmnt.classList);
-
-toggleClass(testlmnt,"glowing");
-
-console.log("Gone: " + testlmnt.classList);
-
-
-var disco = setInterval(() => {
-  toggleClass(glowTest,"glowing");
-},100);
+for (i=0;i<16;i++){
+  print("line #" + i,i);
+}
