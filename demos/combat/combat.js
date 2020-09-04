@@ -6,12 +6,24 @@ var textLog = {
   element: document.querySelector("#textLog"),
   lineCount: document.querySelector("#textLog").childElementCount,
   columns: 50,
-  
 }
 textLog.lines = Array.from(textLog.element.children);
-textLog.lines.reverse();
+//textLog.lineContents = [".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",];
+textLog.lineContents = [];
 
+var player = {
+  name: "Boobadoo the Heroo",
+  hp: 100,
+  damage: 10,
+  armor: 1,
+}
 
+var enemy = {
+  name: "Generic Henchman",
+  hp: 15,
+  damage: 4,
+  armor: 0,
+}
 
 // listen for input
 resetSwitch.addEventListener('click', function () {
@@ -34,21 +46,149 @@ resetSwitch.addEventListener('click', function () {
   
 });
 
+document.addEventListener('keyup',(e) => {
+  if(e.code === "KeyA") attack();
+});
+
 function boot () {
   
   game.classList.remove("gameOff");
   game.classList.add("gameOn");
   // monitor on
+  bootScreen();
   
   
-}
+//  setTimeout(function () {
+//    // wake textLog
+//    var i = 0;
+//    let loadScreen = setInterval(function (){
+//      textLog.line[i].innerHTML = textLog.lineContents[i];
+//      i++;
+//      if (i >= textLog.lineCount) {
+//        textLog.lines[0].innerHTML = ". " + "Would you like to play a game?";
+//        clearInterval(loadScreen);
+//      }
+//    }, 60);
+//  },1000);
+  
+//    for(i = 0; i < textLog.lineCount; i++) {
+//    textLog.lines[i].innerHTML = "." + i;
+    }
+  
+  
+
 
 function kill () {
   game.classList.remove("gameOn");
   game.classList.add("gameOff");
   // monitor off
+  for(i = 0; i < textLog.lineCount; i++) {
+    textLog.lines[i].innerHTML = "";
+    }
+  
+}
+
+function attack() {
+  screenFlash();
+  
+  // let's gooo!
+  if (game.running) {
+    enemy.hp -= Math.floor(player.damage * (Math.random() + 0.5));
+    if (enemy.hp > 0){
+      player.hp -= enemy.damage;
+    }
+    write(1, " HP: " + player.hp)
+    write(6, enemy.name + " (HP: " + enemy.hp + ")");
+    if(enemy.hp <= 0) {
+      write(6,"They died!");
+      write(3,".");
+    }
+  }
   
   
+  // is this the attack that starts the game?
+  if (!game.running) {
+    // prepare the screen using writes. stats and player communication
+    game.running = true;
+    clearScreen();
+    write(0, player.name );
+    write(1, " HP: " + player.hp)
+    write(3, "An enemy " + enemy.name + " appears!")
+    write(4, "Defend yourself!");
+    write(6, enemy.name + " (HP: " + enemy.hp + ")");
+  }
+}
+
+
+
+// You found Opulent Microfiber Gloves of the Mechanical Keyboard Warrior, +5 kpm and 14% accuracy
+
+function bootScreen() {
+  let bootLines = [
+    ".", ".", ".",
+    ".", ".", ".",
+    ".", ".", ".",
+    "Hi.", ".", ".",
+    ".", ".", ".",
+    "Would you like to play a game?",
+    ".", ".", ".",
+    ".",".","I hope so.",
+    "This is a little toy.",
+    "It doesn't do much, but I learned quite a lot making it.",
+    ".", ".", "...",
+    "Please be gentle with it.",
+    "But don't forget to have fun!",".",
+    "A is for ATTACK!"
+  ]
+  
+  let i = 0;
+  let go = setInterval(function () {
+    print(bootLines[i]);
+    i++;
+    if (i >= bootLines.length) { clearInterval(go) }
+  },150);
+}
+
+function screenFlash() {
+  textLog.element.classList.add("screenFlash");
+  setTimeout(function (){
+    textLog.element.classList.remove("screenFlash");
+  },100);
+}
+
+
+
+function write(line,string) {
+  textLog.lineContents[line] = string;
+  updateTextLog();
+}
+function print(str) {
+  
+  if(game.classList.contains("gameOn")){
+    
+    arrayRotate(textLog.lineContents);
+    textLog.lineContents[15] = str;
+    
+    updateTextLog();
+ 
+  }  
+  // write the new line
+  
+}
+function clearScreen() {
+  for(j = 0; j < textLog.lineCount; j++){
+    print(".");
+    //i is cursed. #todo
+  }
+}
+function updateTextLog() {
+  for(i = 0; i < textLog.lineContents.length; i++) {
+      if(textLog.lineContents[i]) {
+      textLog.lines[i].innerHTML = textLog.lineContents[i];
+      } else {
+        textLog.lines[i].innerHTML = "";
+      }
+    }
 }
 
 function toggleClass(element, cssClass) {
@@ -60,22 +200,8 @@ function toggleClass(element, cssClass) {
     element.classList.add(cssClass);
   }
 }
-
-function print(str) {
-  
-  // move everything up
-  for(i=textLog.lineCount-1;i>0;i--){
-    textLog.lines[i].innerHTML = textLog.lines[i].innerHTML;
-    console.log(textLog.lines[i].innerHTML);
-  }
-  
-  // write the new line
-  textLog.lines[0].innerHTML = str;
-  
-}
-
-// You found Opulent Microfiber Gloves of the Mechanical Keyboard Warrior, +5 kpm and 14% accuracy
-
-for (i=0;i<16;i++){
-  print("line #" + i,i);
+function arrayRotate(arr, reverse) {
+  if (reverse) arr.unshift(arr.pop());
+  else arr.push(arr.shift());
+  return arr;
 }

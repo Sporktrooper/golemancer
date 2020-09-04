@@ -134,3 +134,7 @@
 .glowing {
   text-shadow: 0px 0px 4px rgb(220,180,10);
 }
+
+.screenFlash {
+  background-color: #311;
+}
