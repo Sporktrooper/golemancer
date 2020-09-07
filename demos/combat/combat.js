@@ -8,9 +8,14 @@ var textLog = {
   columns: 50,
 }
 textLog.lines = Array.from(textLog.element.children);
-//textLog.lineContents = [".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",".",];
 textLog.lineContents = [];
 
+
+
+// * * * ENTITIES * * *  
+// Goal: refactor into classes
+  // can't evaluate inside prop: val, even in {}. must assign after creation. 
+  // create a func that returns an instantiated and initialized fighty thing.
 var player = {
   name: "Boobadoo the Heroo",
   hp: 100,
@@ -25,7 +30,7 @@ var enemy = {
   armor: 0,
 }
 
-// listen for input
+// * * * EVENT HANDLING * * *
 resetSwitch.addEventListener('click', function () {
   if (resetSwitch.classList.contains("switchOff")) {
     boot();
@@ -45,11 +50,11 @@ resetSwitch.addEventListener('click', function () {
       }
   
 });
-
 document.addEventListener('keyup',(e) => {
   if(e.code === "KeyA") attack();
 });
 
+// * * * COMPY286 * * * 
 function boot () {
   
   game.classList.remove("gameOff");
@@ -74,10 +79,6 @@ function boot () {
 //    for(i = 0; i < textLog.lineCount; i++) {
 //    textLog.lines[i].innerHTML = "." + i;
     }
-  
-  
-
-
 function kill () {
   game.classList.remove("gameOn");
   game.classList.add("gameOff");
@@ -88,6 +89,92 @@ function kill () {
   
 }
 
+function write2(line,string) {
+  // each screen line has a lock once written to. while locked, lineContents
+  // values don't print to those lines[]. write handles updating lines[] and lineContents itself, does not use updateTextLog().
+  
+    textLog.lineContents[line] = string;
+    textLog.lines[line].innerHTML = textLog.lineContents[line];
+    
+}
+function print2(str) {
+  
+  if(game.classList.contains("gameOn")){
+    
+    arrayRotate(textLog.lineContents);
+    textLog.lineContents[15] = str;
+    
+    updateTextLog();
+ 
+  }    
+}
+function write(line,string) {
+  textLog.lineContents[line] = string;
+  updateTextLog();
+}
+function print(str) {
+  
+  if(game.classList.contains("gameOn")){
+    
+    arrayRotate(textLog.lineContents);
+    textLog.lineContents[15] = str;
+    
+    updateTextLog();
+ 
+  }  
+  // write the new line
+  
+}
+function clearScreen() {
+  for(j = 0; j < textLog.lineCount; j++){
+    print(".");
+    //i is cursed. #todo
+  }
+}
+function updateTextLog() {
+  for(i = 0; i < textLog.lineContents.length; i++) {
+      if(textLog.lineContents[i]) {
+      textLog.lines[i].innerHTML = textLog.lineContents[i];
+      } else {
+        textLog.lines[i].innerHTML = "";
+      }
+    }
+}
+
+function bootScreen() {
+  let bootLines = [
+    ".", ".", ".",
+    ".", ".", ".",
+    ".", ".", ".",
+    "Hi.", ".", ".",
+    ".", ".", ".",
+    "Would you like to play a game?",
+    ".", ".", ".",
+    ".",".","I hope so.",
+    "This is a little toy.",
+    "It doesn't do much, but I learned quite a lot making it.",
+    ".", ".", "...",
+    "Please be gentle with it.",
+    "But don't forget to have fun!",".",
+    "A is for ATTACK!"
+  ]
+  
+  let i = 0;
+  let go = setInterval(function () {
+    print(bootLines[i]);
+    i++;
+    if (i >= bootLines.length) { clearInterval(go) }
+  },150);
+} // needs to be refactored into multiple funcs. some elements are using hardcoded values, need to replace with variables.
+
+function screenFlash() {
+  textLog.element.classList.add("screenFlash");
+  setTimeout(function (){
+    textLog.element.classList.remove("screenFlash");
+  },100);
+} // causes a jump in visible area of the textLog element. might be able to fix by having the class reset transition time to 0 and apply it to the background color rather than the textlog.
+
+// * * * COMBAT DEMO * * *
 function attack() {
   screenFlash();
   
@@ -123,73 +210,9 @@ function attack() {
 
 // You found Opulent Microfiber Gloves of the Mechanical Keyboard Warrior, +5 kpm and 14% accuracy
 
-function bootScreen() {
-  let bootLines = [
-    ".", ".", ".",
-    ".", ".", ".",
-    ".", ".", ".",
-    "Hi.", ".", ".",
-    ".", ".", ".",
-    "Would you like to play a game?",
-    ".", ".", ".",
-    ".",".","I hope so.",
-    "This is a little toy.",
-    "It doesn't do much, but I learned quite a lot making it.",
-    ".", ".", "...",
-    "Please be gentle with it.",
-    "But don't forget to have fun!",".",
-    "A is for ATTACK!"
-  ]
-  
-  let i = 0;
-  let go = setInterval(function () {
-    print(bootLines[i]);
-    i++;
-    if (i >= bootLines.length) { clearInterval(go) }
-  },150);
-}
-
-function screenFlash() {
-  textLog.element.classList.add("screenFlash");
-  setTimeout(function (){
-    textLog.element.classList.remove("screenFlash");
-  },100);
-}
 
 
-
-function write(line,string) {
-  textLog.lineContents[line] = string;
-  updateTextLog();
-}
-function print(str) {
-  
-  if(game.classList.contains("gameOn")){
-    
-    arrayRotate(textLog.lineContents);
-    textLog.lineContents[15] = str;
-    
-    updateTextLog();
- 
-  }  
-  // write the new line
-  
-}
-function clearScreen() {
-  for(j = 0; j < textLog.lineCount; j++){
-    print(".");
-    //i is cursed. #todo
-  }
-}
-function updateTextLog() {
-  for(i = 0; i < textLog.lineContents.length; i++) {
-      if(textLog.lineContents[i]) {
-      textLog.lines[i].innerHTML = textLog.lineContents[i];
-      } else {
-        textLog.lines[i].innerHTML = "";
-      }
-    }
-}
+// * * * LOOK FOR THE HELPERS * * * 
 
 function toggleClass(element, cssClass) {
   let lmnt = element;
