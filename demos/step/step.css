@@ -1,0 +1,125 @@
+
+#main{
+  position: relative;
+  height: 50em;
+  width: 30em;
+  
+  background-color: darkslategray;
+  
+  border: 1px solid cyan;
+}
+
+#gameOver {
+  visibility: hidden;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+/*  height: 100%;*/
+  background-color: rgba(255,255,255,0.5);
+  color: red;
+  text-shadow: 0px 0px 5px black;
+  font-family: sans-serif;
+  font-size: 2em;
+}
+
+#gameOver span {
+  flex: 10em 20em;
+}
+
+.debug {
+/*  background-color: beige;*/
+  border: 1px dotted red;
+}
+
+#pointsHolder {
+  display: flex;
+}
+
+.pointsElement {
+  flex: 1;
+  text-align: center;
+  margin: 0.5em;
+  margin-left: 3em;
+  padding: 1em;
+  background-color: white;
+  border-radius: 100%;
+  border-radius: 100px;
+  font-family: sans-serif;
+  font-size: 1.5em;
+  color: blue;
+}
+
+#points {
+  margin: 0.5em;
+  margin-right: 3em;
+}
+
+
+#stepTrack {
+  position: absolute;
+  display: flex;
+  left: 1em;
+  top: 6.25em;
+  right: 1em;
+  bottom: 7em;
+  background-color: white;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+.step {
+  flex: 1;
+/*  width: 3em;*/
+/*  height: 3em;*/
+  
+  background-color: navy;
+  border: 3px solid red;
+  border-radius: 1em;
+  margin: 1em 1em;
+}
+
+.step.on{
+  background-color: hotpink;
+}
+
+.buttonBar {
+  position: absolute;
+  display: flex;
+  bottom: 2em;
+  left: 1em;
+  right: 1em;
+  height: 5em;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+/*
+  width: 3em;
+  height: 3em;
+*/
+/*
+  top: 80px;
+  right: 0;
+  width: 200px;
+  height: 100px;
+*/
+  
+  background-color: rgba(255,0,255,0.2);
+}
+
+.button {
+  flex: 1;
+  width: 1em;
+  margin: 1em 1em;
+  border-radius: 0.5em;
+  background-color: cyan;
+}
+
+.button.pushed {
+  background-color: darkviolet;
+}
+
