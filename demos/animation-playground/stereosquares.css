@@ -1,0 +1,87 @@
+:root {
+  background-color: black;
+}
+
+#main {
+  position: relative;
+  background-color: white;
+  height: 800px;
+  width: 800px;
+}
+
+
+.splitSqr {
+  position: absolute;
+  top: 36%;
+  left: 36%;
+  
+  border: 5em solid black;
+  height: 20%;
+  width: 20%;
+}
+
+#sq1 {
+  animation: sq1To3 377ms infinite linear alternate;
+  border-color: rgba(255,96,128,0.5);
+  top: 35%;
+  left: 35%;
+}
+
+#sq2 {
+/*  visibility: hidden;*/
+  border-color: rgba(96,255,96,0.5);
+/*  animation: sq2wobble 987ms infinite linear alternate;*/
+  animation: triangle 987ms infinite linear alternate;
+}
+
+#sq3 {
+  animation: sq3To1 610ms infinite linear alternate;
+  border-color: rgba(96,128,255,0.5);
+  top: 37%;
+  left: 37%;
+}
+
+@keyframes sq1To3 {
+  from {
+    
+  }
+  to {
+    top: 37%;
+    left: 37%;
+  }
+}
+
+@keyframes sq3To1 {
+  from {
+    
+  }
+  to {
+    top: 35%;
+    left: 35%;
+  }
+}
+
+@keyframes sq2wobble {
+  from {
+    top: 37%;
+    left: 35%;
+  }
+  to {
+    top: 35%;
+    left: 37%;
+  }
+}
+
+@keyframes triangle {
+  from {
+    top: 36%;
+    left: 35%;
+  }
+  50% {
+    top: 37%;
+    left: 36%;
+  }
+  to {
+    top: 36%;
+  }
+}

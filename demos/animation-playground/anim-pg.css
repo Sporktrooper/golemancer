@@ -1,0 +1,191 @@
+:root {
+  background-color: black;
+}
+
+#main {
+  position: relative;
+  background-color: white;
+  height: 800px;
+  width: 800px;
+}
+
+#face {
+  border: 10px solid black;
+  position: absolute;
+  height: 600px;
+  width: 600px;
+  border-radius: 45%;
+  background-color: #FF5;
+    
+  animation-name: faceMove;
+  animation-duration: 6s;
+  animation-delay: 14s;
+  animation-direction: ;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+#mouth {
+  position: absolute;
+  top: 300px;
+  left: 200px;
+  
+  height: 100px;
+  width: 300px;
+  
+  border: 5px solid black;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50px;
+  
+  
+  background-color: #f44;
+  
+  animation-name: mouthMove;
+  animation-duration: 2s;
+  animation-delay: 14s;
+  animation-direction: ;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.eye {
+  position: absolute;
+  overflow: hidden;
+  top: 100px;
+  
+  height: 100px;
+  width: 75px;
+  
+  background-color: white;
+  border: 5px solid black;
+  border-radius: 50%;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 25px;
+  
+  animation-name: eyesMove;
+  animation-duration: 1s;
+  animation-delay: 15s;
+  animation-direction: ;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.eye.left {
+  left: 150px;
+}
+
+.eye.right {
+  left: 400px;
+}
+
+.pupil {
+  position: absolute;
+  height: 70px;
+  width: 50px;
+  background-color: black;
+  border-radius: 100%;
+  top: 40px;
+  left: 30px;
+  
+  animation-name: pupilsMove;
+  animation-duration: 3s;
+  animation-delay: 13s;
+  animation-direction: ;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  
+}
+
+/*
+.pupil.left {
+  top: 40px;
+  left: 30px;
+}
+
+.pupil.right {
+  top: 130px;
+  left: 390px;
+}*/
+
+@keyframes pupilsMove {
+  from {
+    background-color: black;
+    box-shadow: none;
+  }
+  10% {
+    top: 20px;
+    left: 13px;
+  }
+  
+  30% {
+    top: 20px;
+    left: 13px;
+    background-color: black;
+    box-shadow: none;
+  }
+  to {
+    background-color: red;
+    top: 20px;
+    left: 13px;
+    box-shadow: 0px 0px 15px cyan;
+  }
+}
+
+@keyframes mouthMove {
+  from {
+    
+  }
+  50% {
+    left: 160px;
+    background-color: #f00;
+  }
+  80% {
+    left: 158px;
+    border-radius: 100%;
+    height: 250px;
+    background-color: #f00;
+    box-shadow: none;
+  }
+  to {
+    left: 158px;
+    border-radius: 100%;
+    height: 250px;
+    background-color: #000;
+    box-shadow: 0px 0px 70px 10px
+  }
+}
+
+@keyframes faceMove {
+  from {
+    border-radius: 45%;
+    
+  }
+  25% {
+    background-color: #ff0;
+    border-radius: 75%;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    height: 600px;
+    
+  }
+  to {
+    background-color: #ff0;
+    border-radius: 75%;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    height: 600px;
+    background-color: #dd9
+    
+  }
+}
+
+@keyframes eyesMove {
+  from {
+    box-shadow: none;
+  }
+  to {
+    box-shadow: 0px 10px 15px
+  }
+}
