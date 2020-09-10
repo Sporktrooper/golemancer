@@ -1,0 +1,101 @@
+html,
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: cornflowerblue
+}
+
+#main {
+  position: relative;
+  min-height: 75vw;
+  margin: 5%;
+  background-color: #384a52;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#log {
+  border: 1px solid black;
+  padding: 1em;
+  height: 60vw;
+  overflow: auto;
+  background-color: bisque;
+  display: table-cell;
+  min-width: 83vw;
+  vertical-align: bottom;
+  display: inline-block;
+  box-shadow: -1px 1px 2px #000;
+}
+
+#log ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
+}
+
+#log ul::-webkit-scrollbar{
+  width: 0px;
+}
+
+#log ul li {
+  
+  margin: 1em;
+  animation-name: log-entry-add;
+  animation-duration: 750ms;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;  
+}
+
+#buttons {
+  height: 5em;
+  background-color: #368;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.button {
+  flex-basis: 40%;
+  height: 2em;
+  
+  background-color: bisque;
+  border: 1px solid black;
+  border-radius: 30px;
+  
+  font-family: monospace;
+  font-size: 1.5em;
+  text-align: center;
+  padding-top:0.8em;
+  user-select: none;
+}
+
+.button:hover {
+  box-shadow: 0px 0px 10px #345;
+  border-style: groove;
+  border-color: #345;
+  text-shadow: 0px 0px 5px #bbb;
+}
+
+.main-child {
+  border-radius: 10px;
+  margin: 3px;
+}
+
+@keyframes log-entry-add {
+  from {
+    text-shadow: 0px 0px 10px #f00;
+    color: #cc0;
+    font-size: 1em;
+  }
+  70% {
+    color: #d60;
+  }
+  to {
+    color: black;
+  }
+}

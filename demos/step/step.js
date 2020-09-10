@@ -10,49 +10,49 @@ var gameOverElement = document.querySelector("#gameOver")
 
 document.addEventListener('keydown', controls);
 function controls(e) {
-  switch(e.code){
-    case "KeyA":
-      buttonBar.buttonA.classList.add("pushed");
-      setTimeout(function() {
-        buttonBar.buttonA.classList.remove("pushed");
-      },100);
-      pushed(track.a);
-      break;
-      
-    case "KeyS":
-      buttonBar.buttonS.classList.add("pushed");
-      setTimeout(function() {
-        buttonBar.buttonS.classList.remove("pushed");
-      },100);
-      pushed(track.s);
-      break;
-      
-    case "KeyD":
-      buttonBar.buttonD.classList.add("pushed");
-      setTimeout(function() {
-        buttonBar.buttonD.classList.remove("pushed");
-      },100);
-      pushed(track.d);
-      break;
-      
-    case "KeyF":
-      buttonBar.buttonF.classList.add("pushed");
-      setTimeout(function() {
-        buttonBar.buttonF.classList.remove("pushed");
-      },100);
-      pushed(track.f);
-      break;
-      
-    case "KeyR":
-      if (gameOverElement.style.visibility == "visible"){
-        gameOverElement.style.visibility = "hidden";
-        createRow();
-      }
-    
-    default: 
-      break;
-      
-  }
+    switch(e.code){
+      case "KeyA":
+        buttonBar.buttonA.classList.add("pushed");
+        setTimeout(function() {
+          buttonBar.buttonA.classList.remove("pushed");
+        },100);
+        pushed(track.a);
+        break;
+
+      case "KeyS":
+        buttonBar.buttonS.classList.add("pushed");
+        setTimeout(function() {
+          buttonBar.buttonS.classList.remove("pushed");
+        },100);
+        pushed(track.s);
+        break;
+
+      case "KeyD":
+        buttonBar.buttonD.classList.add("pushed");
+        setTimeout(function() {
+          buttonBar.buttonD.classList.remove("pushed");
+        },100);
+        pushed(track.d);
+        break;
+
+      case "KeyF":
+        buttonBar.buttonF.classList.add("pushed");
+        setTimeout(function() {
+          buttonBar.buttonF.classList.remove("pushed");
+        },100);
+        pushed(track.f);
+        break;
+
+      case "KeyR":
+        if (gameOverElement.style.visibility == "visible"){
+          gameOverElement.style.visibility = "hidden";
+          createRow();
+        }
+
+      default: 
+        break;
+
+    }
 }
 
 function pushed(lane) {
@@ -77,19 +77,19 @@ function createRow() {
   
   switch (row) {
     case 0:
-        track.a.classList.add("on");
+        track[0].classList.add("on");
       break;
       
     case 1:
-        track.s.classList.add("on");
+        track[1].classList.add("on");
       break;
       
     case 2:
-        track.d.classList.add("on");
+        track[2].classList.add("on");
       break;
       
     case 3:
-        track.f.classList.add("on");
+        track[3].classList.add("on");
       break;
   }
   
@@ -121,8 +121,8 @@ function movePoints(val) {
     points.val = 0
   } else {
     points.val += val;
-    points.element.innerHTML = points.val;
   }
+  points.element.innerHTML = points.val;
 }
 
 
@@ -132,11 +132,17 @@ function create(parent,elementType) {
   return newElement;
 }
 
-var track = {};
-track.a = document.querySelector("#trackA");
-track.s = document.querySelector("#trackS");
-track.d = document.querySelector("#trackD");
-track.f = document.querySelector("#trackF");
+var track = [
+  document.querySelector("#trackA"),
+  document.querySelector("#trackS"),
+  document.querySelector("#trackD"),
+  document.querySelector("#trackF"),
+];
+//var track = {};
+//track.a = document.querySelector("#trackA");
+//track.s = document.querySelector("#trackS");
+//track.d = document.querySelector("#trackD");
+//track.f = document.querySelector("#trackF");
 
 var buttonBar = create(main,"div");
 buttonBar.classList.add("buttonBar");
@@ -154,3 +160,5 @@ buttonBar.buttonF = create(buttonBar,"div");
 buttonBar.buttonF.classList.add("button");
 
 createRow();
+
+track[0].classList.add("test");

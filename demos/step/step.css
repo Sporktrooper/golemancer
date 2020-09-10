@@ -1,12 +1,13 @@
 
 #main{
   position: relative;
-  height: 50em;
-  width: 30em;
+  height: 48em;
+  width: 25em;
   
   background-color: darkslategray;
   
   border: 1px solid cyan;
+  border-radius: 15px;
 }
 
 #gameOver {
@@ -64,13 +65,13 @@
 #stepTrack {
   position: absolute;
   display: flex;
-  left: 1em;
+  left: 1.25em;
   top: 6.25em;
-  right: 1em;
+  right: 1.25em;
   bottom: 7em;
   background-color: white;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .step {
@@ -81,19 +82,89 @@
   background-color: navy;
   border: 3px solid red;
   border-radius: 1em;
-  margin: 1em 1em;
+  margin: 1em 0.25em;
+  height: 10em;
 }
 
 .step.on{
   background-color: hotpink;
 }
 
+.step.test {
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-name: dropStep;
+  
+}
+
+.step.test.paused {
+  animation-play-state: paused;
+}
+
+/*
+.step.pos1 {
+  animation-duration: 200ms;
+  animation-timing-function: linear;
+  animation-name: pos1;
+}
+*/
+
+@keyframes dropStep {
+  from {
+    margin-top: 1em;
+  }
+  
+  to {
+    margin-top: 24em;
+  }
+}
+
+@keyframes pos1 {
+  from {
+    margin-top: 1em;
+  }
+  
+  to {
+    margin-top: 24em;
+  }
+}
+
+@keyframes pos2 {
+  from {
+    margin-top: 1em;
+  }
+  
+  to {
+    margin-top: 24em;
+  }
+}
+
+@keyframes pos3 {
+  from {
+    margin-top: 1em;
+  }
+  
+  to {
+    margin-top: 24em;
+  }
+}
+
+@keyframes pos4 {
+  from {
+    margin-top: 1em;
+  }
+  
+  to {
+    margin-top: 24em;
+  }
+}
+
 .buttonBar {
   position: absolute;
   display: flex;
   bottom: 2em;
-  left: 1em;
-  right: 1em;
+  left: 1.219em;
+  right: 1.219em;
   height: 5em;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;

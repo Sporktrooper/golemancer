@@ -1,0 +1,117 @@
+:root {
+  background-color: black;
+}
+
+.debug {
+  border: 1px dotted red;
+  margin: -1px;
+}
+
+#main {
+/*  position: relative;*/
+  width: 470px;
+  height: 470px;
+  background-color: bisque;
+}
+
+#tile-container {
+  position: absolute; 
+  margin: 0px;
+  height: 450px;
+  width: 450px;
+  display: flex;
+  flex-wrap: wrap
+  
+}
+
+.tile {
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  background-color: darkseagreen;
+  
+}
+
+.nw {
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-name: moveToNW;
+  animation-fill-mode: forwards;
+}
+
+.n {
+  top: 0px;
+  left: 150px;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-name: moveToN;
+  animation-fill-mode: forwards;
+}
+
+.ne {
+  top: 0px;
+  left: 300px;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-name: moveToNE;
+  animation-fill-mode: forwards;
+}
+
+.w {
+  top: 150px;
+  left: 0px;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-name: moveToW;
+  animation-fill-mode: forwards;
+}
+
+.center {
+  top: 150px;
+  left: 150px;
+  animation-delay: 1s;
+  animation-duration: 1s;
+  animation-name: moveToN;
+  animation-fill-mode: forwards;
+}
+
+@keyframes moveToNW {
+  from {
+/*    background-color: blue;*/
+  }
+  to {
+    background-color: red;
+    top: 0px;
+    left: 0px;
+  }
+  
+  @keyframes moveToN {
+  from {
+/*    background-color: blue;*/
+  }
+  to {
+    background-color: red;
+    top: 0px;
+    left: 150px;
+  }
+    @keyframes moveToNE {
+  from {
+/*    background-color: blue;*/
+  }
+  to {
+    background-color: red;
+    top: 0px;
+    left: 300px;
+  }
+}
+    
+    @keyframes moveToW {
+  from {
+/*    background-color: blue;*/
+  }
+  to {
+    background-color: red;
+    top: 150px;
+    left: 0px;
+  }
+}
