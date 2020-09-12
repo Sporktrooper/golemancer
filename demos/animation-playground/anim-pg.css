@@ -10,6 +10,8 @@
 }
 
 #face {
+  top: 80px;
+  left: 80px;
   border: 10px solid black;
   position: absolute;
   height: 600px;

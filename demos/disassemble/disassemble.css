@@ -1,0 +1,428 @@
+:root {
+  background-color: #888;
+}
+
+body {
+  border: 1em double black;
+  box-shadow: 0px 0px 1em 0.1em #0FF;
+  background-image: url(bgtile.svg);
+  background-color: #ddd;
+  background-position: center;
+  position: relative;
+  height: 48em;
+  width: 48em;
+  margin: 1em;
+}
+
+
+
+/* SKELETON*/
+
+.bone {
+  border: 0.2em solid black;
+  height: 6em;
+  width: 3em;
+  background-color: #444;
+  border-radius: 1em;
+  
+  position: absolute;
+  top: 80%;
+  left: 2%;
+  z-index: 0;
+  box-shadow: inset 0em 0em 0.5em #000;
+  
+}
+
+.bone.finger {
+  height: 14em;
+  top: 5em;
+  left: 5em;
+}
+
+.bone.finger.self {
+  left: 7em;
+  height: 12em;
+  top: 7em;
+  transform: rotate(-0.1rad);
+}
+
+.bone.finger.soul {
+  left: 13em;
+}
+
+.bone.finger.heart {
+  top: 6em;
+  left: 18em;
+  height: 13em;
+  transform: rotate(0.05rad)
+}
+
+.bone.finger.trust {
+  left: 23em;
+  height: 10em;
+  width: 2.6em;
+  top: 9.5em;
+  transform: rotate(0.2rad)
+}
+
+.bone.finger.will {
+  left: 2em;
+  top: 19em;
+  height: 8em;
+  width: 3em;
+  transform: rotate(-0.4rad)
+}
+
+.bone.palm {
+  top: 22em;
+  left: 8em;
+  width: 16em;
+  height: 12em;
+  border-top-left-radius: 3em;
+  border-top-right-radius: 3em;
+  border-bottom-left-radius: 80%;
+  border-bottom-right-radius: 65%;
+}
+
+/*  ARMOR  */
+
+.armor {
+  background-color: #8bf;
+  z-index: 10;
+  box-shadow: inset 0em 0em 0.5em
+}
+
+.bone.armor.self {
+  
+  top: 9em;
+  left: 6.8em;
+  height: 9em;
+  width: 3.5em;
+  transform: rotate(-0.1rad);
+  
+}
+
+.bone.armor.soul {
+  top: 7.3em;
+  left: 12.7em;
+  height: 10em;
+  width: 3.5em;
+}
+
+.bone.armor.heart {
+  top: 8em;
+  left: 17.8em;
+  height: 9.5em;
+  width: 3.4em;
+  transform: rotate(0.05rad)
+}
+
+.bone.armor.trust {
+  left: 22.75em;
+  height: 7em;
+  width: 2.9em;
+  top: 11.5em;
+  transform: rotate(0.2rad)
+}
+
+.bone.armor.will {
+  left: 1.8em;
+  top: 20em;
+  height: 6em;
+  width: 3.3em;
+  transform: rotate(-0.4rad)
+}
+
+.bone.armor.palm {
+  top: 20.5em;
+  left: 7.2em;
+  width: 17em;
+  height: 12em;
+  border-top-left-radius: 3em;
+  border-top-right-radius: 3em;
+  border-bottom-left-radius: 80%;
+  border-bottom-right-radius: 65%;
+  z-index: 12;
+}
+
+.bone.forearm {
+  top: 35em;
+  left: 10em;
+  width: 12em;
+  height: 12em;
+  
+}
+
+.bone.armor.forearm {
+  top: 35em;
+  left: 9.7em;
+  width: 12.5em;
+  height: 10em;
+}
+
+
+/*  MECHANISMS  */
+
+#mechanisms {
+  position: absolute;
+  border: 1em solid rgba(0,0,0,0);
+  top: 22em;
+  left: 8em;
+}
+.mechanism {
+  position: absolute;
+  border: 0.5em solid #660;
+  border-radius: 50%;
+  background-color: #bb0;
+  z-index: 4;
+}
+
+.mechanism.joint {
+  width: 2em;
+  height: 2em;  
+  z-index: 6;
+  box-shadow: 0.2em 0.2em 0.2em 0.1em #440
+}
+
+.mechanism.joint.self {
+  top: -1.5em;
+  left: -1em;
+}
+
+.mechanism.joint.soul {
+  top: -1.5em;
+  left: 4em;
+}
+
+.mechanism.joint.heart {
+  top: -1.5em;
+  left: 8em;
+}
+
+.mechanism.joint.trust {
+  top: -1.5em;
+  left: 12em;
+}
+
+.mechanism.joint.will {
+  top: 3em;
+  left: -1.5em;
+}
+
+
+
+
+.mechanism.palm.control {
+  top: 3em;
+  left: 2.5em;
+  width: 10em;
+  height: 5em;
+  border-radius: 1em;
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 4em;
+  z-index: 8;
+  box-shadow: 0em 0.1em 0.3em
+}
+
+.label {
+  position: absolute;
+  font-family: monospace;
+  font-size: 1.2em;
+}
+
+.label.on {
+  left: 6em;
+  top: 1.5em;
+}
+
+.label.off {
+  left: 6em;
+  top: 3em;
+}
+
+.mechanism.switch.post {
+  top: 2.5em;
+  left: 3em;
+  transform: rotate(0.2rad);
+  box-shadow: 0 0 0.5em 0.1em
+  
+}
+.mechanism.switch.needle {
+  border-radius: 0px;
+  background-color: transparent;
+  left: 0.3em;
+  top: -0.3em;
+  
+  width: 1em;
+  height: 0em;
+  border-top: 0.1em solid rgba(0,0,0,0);
+  border-bottom: 0.5em solid transparent;
+  border-left: 2em solid red;
+  border-right: 0.1em solid transparent;
+}
+
+.mechanism.conduit {
+  border: none;
+  border-left: 0.3em dotted #440;
+  border-right: 0.3em dotted #440;
+  border-radius: 1em;
+/*  border-bottom-left-radius: 1em;*/
+/*  border-bottom-right-radius: 1em;*/
+  height: 5.5em;
+/*  top: -0.4em;*/
+  width: 1.1em;
+/*  left: -1.8em;*/
+  box-shadow: 0em 0.3em 1em 0.1em #440;
+}
+
+.mechanism.conduit.self {
+  top: -4.5em;
+  left: -1.5em;
+  height: 6.5em;
+  transform: rotate(-0.7rad);
+}
+
+.mechanism.conduit.soul {
+  top: -4em;
+  left: 2.3em;
+  height: 5.5em;
+  transform: rotate(-0.3rad);
+}
+
+.mechanism.conduit.heart {
+  top: -3.8em;
+  left: 5.9em;
+  height: 5em;
+  transform: rotate(-0.1rad);
+}
+
+.mechanism.conduit.trust {
+  top: -4em;
+  left: 9em;
+  transform: rotate(0.3rad);
+}
+
+.mechanism.conduit.will {
+  top: -0.4em;
+  left: -1.8em;
+  transform: rotate(-1.0rad);
+}
+
+.label {
+  color: rgba(90,100,0,0.7);
+  text-shadow: 0px 0px 3px #660
+}
+
+
+.infobox {
+  border: 10px solid rgba(100,100,140,0.3);
+  border-radius: 1em;
+  background-color: rgba(120,120,180,0.2);
+  position: absolute;
+  width: 13em;
+  height: 35em;
+  top: 6em;
+  left: 30em;
+  
+  padding: 1em;
+  font-family: sans-serif;
+  color: #fff;
+  text-shadow: 0em 0em 0.2em rgb(40,40,160);
+}
+
+.bone.armor:hover {
+  border: 0.2em dashed gray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.vanish {
+  animation-name: vanim;
+  animation-duration: 1s;
+  animation-fill-mode: forwards
+  
+}
+
+@keyframes vanim {
+  from {
+    
+  }
+  to {
+    left: 13em;
+    top: -10em;
+    border: none;
+    background-color: rgba(0,0,0,0.0);
+    visibility: hidden;
+    box-shadow: none;
+  }
+}
+
+.conduitPulse {
+  animation-name: conPulseAnim;
+  animation-duration: 1s;
+  animation-delay: 300ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in;
+/*  animation-fill-mode:both;*/
+}
+
+@keyframes conPulseAnim {
+  from {
+    border-color: #440
+  }
+  to {
+    border-color: #0FF;
+  }
+}
+
+.switchFlip {
+  animation-name: switchFlipAnim;
+  animation-duration: 300ms;
+/*  animation-delay: 300ms;*/
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes switchFlipAnim {
+  from {
+    
+  }
+  
+  to {
+    transform: rotate(-0.2rad);
+  }
+}
+
+.fingerConnect {
+  animation-name: fingerConnectAnim;
+  animation-duration: 1s;
+  animation-delay: 300ms;*/
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+
+}
+
+@keyframes fingerConnectAnim {
+  from {
+    
+  }
+  to {
+/*    this wound up being a huge pain in the ass because i didn't think to put the html elements into a hierarchy when i got started, and by the time i realized it would be a good idea i had already positioned everything and really didn't want to start over for something this small. i learned lessons though which is the goal. */
+  }
+}
