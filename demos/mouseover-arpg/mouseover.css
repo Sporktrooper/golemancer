@@ -1,0 +1,114 @@
+/*
+body {
+  position: relative;
+  height: 100vh;
+  width: 100vw
+}
+*/
+
+body {
+/*  position: relative;*/
+  height: 100%;
+  margin: 0;
+  background-color: #494;
+/*  border: 10px solid red*/
+}
+
+span {
+  position: absolute;
+  user-select: none;
+}
+
+#score {
+  position: absolute;
+  right: 0em;
+  top: 1em;
+}
+
+#container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
+  
+/*
+  animation-name: rotate;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-duration: 10s
+*/
+}
+
+.box {
+  position: absolute;
+  box-shadow: inset 0em 0em 3em 2.3em rgba(0,0,0,0.9);
+  border: 10px solid red;
+  
+  width: 5em;
+  height: 5em;
+}
+/*
+#mover {
+  visibility: hidden;
+  position: absolute;
+  box-shadow: inset 0em 0em 3em 1.3em rgba(0,0,0,0.5);
+  border: 10px solid red;
+  
+  width: 5em;
+  height: 5em;
+  
+  top: 0em;
+  left: 0em;
+*/
+  
+/* animation
+  animation-name: boxMove;
+  animation-duration: 10s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+*/
+}
+
+#mover:hover {
+/*  border: 1em dotted red;*/
+}
+
+#mover:active {
+  box-shadow: inset 0px 0px 1em 1em red;
+  background-color: black;
+}
+
+@keyframes boxMove {
+  from {
+    top: 0em;
+    left: 0em;
+  }
+  25% {
+    top: 15em;
+    left: -7em;
+  }
+  50% {
+    top: 7em;
+    left: -15em;
+  }
+  75% {
+    top: 15em;
+    left: 15em;
+  }
+  95% {
+    
+  }
+  to {
+    top: 0em;
+    left: 0em;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(-1rad);
+  }
+  to {
+    transform: rotate(1rad);
+  }
+}
