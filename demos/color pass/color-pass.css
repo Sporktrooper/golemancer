@@ -1,0 +1,29 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.field{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  border-style:ridge;
+  border-width: 1em;
+  border-color: yellow;
+  height: 30em;
+  width: 50em;
+  background-color: darkgoldenrod;
+}
+
+.entity{
+  border: 0.5em solid cyan;
+  background: lightblue;
+  position:absolute;
+  top: 1em;
+  left: 1em;
+  
+  width: 10em;
+  height: 10em;
+  
+  border-radius: 2em;
+}
