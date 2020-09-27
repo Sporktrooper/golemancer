@@ -15,7 +15,7 @@ body {
   background-color: darkgoldenrod;
 }
 
-.entity{
+.player{
   border: 0.5em solid cyan;
   background: lightblue;
   position:absolute;
@@ -26,4 +26,26 @@ body {
   height: 10em;
   
   border-radius: 2em;
+}
+
+.player2{
+  border: 0.5em solid magenta;
+  background-color: lightcoral;
+  position:absolute;
+  top: 1em;
+  left: 1em;
+  
+  width: 10em;
+  height: 10em;
+  
+  border-radius: 2em;
+}
+
+
+.ball {
+  border: 0.5em solid yellow;
+  border-radius: 100%;
+  background-color: yellowgreen;
+  width: 3em;
+  height: 3em;
 }

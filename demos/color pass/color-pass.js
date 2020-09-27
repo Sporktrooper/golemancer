@@ -1,51 +1,93 @@
-function PrefixedEvent(element, type, callback) {
-    for (var p = 0; p < pfx.length; p++) {
-        if (!pfx[p]) type = type.toLowerCase();
-        element.addEventListener(pfx[p]+type, callback, false);
-    }
-}
+// a system allowing entities to hold items/other entities and pass their reference between one another and look at items/entities held by others.
 
 class Entity {
-  constructor () {
-    this.position = {x: 0, y: 0};
-    this.size = {x: 0, y: 0}
-    this.color = "#ccc";
-    this.element = document.createElement("div");
-    this.element.style.backgroundColor = this.color;
-    this.element.classList.add("entity");
+  constructor() {
+    this.name = "Unnamed Entity"
+    this._obj = this;
+    this._element = document.createElement("div");
+    this._parent = {};
+    this._canSee = new Array();
+    this._contents = new Array();
   }
-  move(location) {
-    this.position = location;
-    this.element.style.left = location.x + "em" || this.position.x;
-    this.element.style.top = location.y + "em" || this.position.y;
+  set parent(newParent){
+    newParent._element.appendChild(this._element);
+    this._parent = newParent;
   }
-  moveAnimated(location) {
-    let x = location.x;
-    let y = location.y;
-    this.element.animate([
-      { transform: 'translateX(' + this.position.x + 'em' + ')',
-        transform: 'translateY(' + this.position.y + 'em' + ')'
-      },
-      
-      { transform: 'translateX(' + x + 'em)',
-        transform: 'translateY(' + y + 'em)'
-      }
-    ], 
-      {  
-        duration: 1000,
-        fill: "forwards"
-      
-      });
+  moveTo(location){
+    this._position = location;
+    this._element.style.left = location.x + "em" || this.position.x;
+    this._element.style.top = location.y + "em" || this.location.y;
+  }
+  lookAt(otherEntity) {
+    this._canSee = otherEntity._contents;
+  }
+  lookFor(entityByName) {
+    let soughtItem = this._canSee.find(element => element.name == entityByName);
+    return soughtItem;
+  }
+  set cssClass(cssClass) {
+    this._element.classList.toggle(cssClass);
+  }
+  // requestItem - triggers the other party's giveItem
+  requestItem(item, holder) {
+    holder.giveItem(item, this);
+  }
+  // receiveItem - adds item to contents
+  receiveItem(item) {
+    // should not be used at runtime, only during setup. doing this during runtime does not perform any inventory checks. it should only be called when creating new items or attaching orphaned items. it will be called by giveItem or requestItem as needed.
+    this._contents.push(item);
+    item.parent = this;
+    console.log(this.name + " received the " + item.name)
+  }
+  // giveItem - triggers the other party's receiveItem
+  giveItem(item, recipient) {
+    let itemToGive = this._contents.find(element => element == item);
+    recipient.receiveItem(itemToGive);
+    this._contents.splice(this._contents.indexOf(itemToGive),1);
   }
 }
 
+let main = new Entity();
+main._element = document.querySelector(".main")
+let field = new Entity();
+field.name = "Playing Field";
+
 let a = new Entity();
-let field = document.querySelector(".field")
+a.name = "Alfa";
+a.cssClass = "player"
+a.parent = field
+a.moveTo({x:5,y:15})
 
-field.appendChild(a.element);
+let b = new Entity();
+b.name = "Betta";
+b.cssClass = "player2"
+b.parent = field
+b.moveTo({x:30,y:15})
 
-//a.move({x: 2, y: 10});
+let ball = new Entity();
+ball.name = "ball";
+ball.cssClass = "ball";
+ball.parent = field;
 
-//a.moveAnimated({x:1,y:1},1000);
-a.moveAnimated({x:10,y:1},1000);
-//a.moveAnimated({x:20,y:10},2000);
+
+field.receiveItem(a);
+field.receiveItem(b);
+field.receiveItem(ball);
+
+field.parent = {_element: document.querySelector("body")};
+field.cssClass = "field";
+
+a.requestItem(ball,field);
+
+function playGame(players,ball){
+  let ballHolder = ball._parent
+  let catchers = new Array();
+  for (let i = 0; i < players.length; i++){
+    if(!players[i]._contents.find(element => element == ball)){
+      catchers.push(players[i])
+    }
+  }
+  ballHolder.giveItem(ball,catchers[0]);
+}
+
+let game = setInterval(() => playGame([a,b],ball),300);
