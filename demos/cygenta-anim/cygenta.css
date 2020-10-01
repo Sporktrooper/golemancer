@@ -1,0 +1,111 @@
+:root {
+  --spin-timer: 13208ms;
+  --oscillate-timer: 2280ms;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  
+}
+
+.circle {
+  position: absolute;
+  background-color: black;
+/*  border: 10px solid red;*/
+  height: 10em;
+  width: 10em;
+  border-radius: 100%;
+  
+}
+
+#spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation-name: spin;
+/*  animation-direction: alternate;*/
+  animation-duration: var(--spin-timer);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+/*  border: 10px solid red;*/
+}
+
+#cir1 {
+  top: -5em;
+  left: -5em;
+  box-shadow: 0em 0em 5em cyan;
+  animation-name: moveLeft;
+  animation-direction: alternate;
+/*  animation-timing-function: linear;*/
+  animation-duration: var(--oscillate-timer);
+  animation-iteration-count: infinite;
+  
+}
+
+#cir2 {
+  top: -5em;
+  left: -5em;
+  box-shadow: 0em 0em 5em magenta;
+  animation-name: moveRight;
+  animation-direction: alternate;
+/*  animation-timing-function: linear;*/
+  animation-duration: var(--oscillate-timer);
+  animation-iteration-count: infinite;
+}
+
+@keyframes moveLeft {
+  from {
+    left: -5em;
+    box-shadow: 0em 0em 15em 2.5em cyan;
+    
+  }
+  30% {
+    box-shadow: 0em 0em 5em cyan;
+  }
+  to {
+    left: -12em;
+    box-shadow: 0em 0em 5em cyan;
+  }
+}
+
+@keyframes moveRight {
+  from {
+    left: -5em;
+    box-shadow: 0em 0em 10em 2em magenta;
+  }
+  30% {
+    box-shadow: 0em 0em 4em 1em magenta;
+  }
+  to {
+    left: 2em;
+    box-shadow: 0em 0em 4em 1em magenta;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bgFlash {
+  from {
+/*    background-color: darkcyan;*/
+    box-shadow: 0em 0em 10em 5em cyan;
+  }
+  3% {
+    background-color: black;
+  }
+  97% {
+    background-color: black;
+  }
+  to {
+    background-color: darkmagenta;
+  }
+}
