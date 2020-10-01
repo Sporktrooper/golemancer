@@ -1,0 +1,119 @@
+:root {
+  --main-border-color: #444;
+  --main-bg-color: #666;   
+}
+
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #eee;
+}
+
+#torso {
+  position: absolute;
+  background-color: var(--main-bg-color);
+  
+  border: 1em solid var(--main-border-color);
+  border-radius: 4em;
+  border-bottom-left-radius: 80%;
+  border-bottom-right-radius: 80%;
+  
+  width: 7em;
+  height: 8em;
+  
+  top: 8em;
+  left: 8em;
+}
+
+.shoulder {
+  position: absolute;
+  background-color: var(--main-bg-color);
+  
+  border: 0.5em solid var(--main-border-color);
+  border-radius: 100%;
+  
+  width: 3em;
+  height: 3em;
+}
+#shoulderL {
+  top: -2em;
+  left: -3em;
+}
+#shoulderR {
+  top: -2em;
+  left: 6em;
+}
+
+.arm {
+  position: absolute;
+  background-color: var(--main-bg-color);
+  
+  border: 0.25em solid var(--main-border-color);
+  border-radius: 2em;
+  
+  width: 2em;
+  height: 10em;
+  
+  top: 0.5em;
+  left: 0.25em;
+  
+  
+}
+#armL {
+  
+}
+#armR {
+  
+}
+
+.hip {
+  position: absolute;
+  background-color: var(--main-bg-color);
+  
+/*  border: 1em solid white;*/
+  border: 0.5em solid var(--main-border-color);
+  border-radius: 100%;
+  
+  width: 3em;
+  height: 3em;
+}
+#hipL {
+  top: 6em;
+  left: -1em;
+}
+#hipR {
+  top: 6em;
+  left: 4em;
+}
+
+.leg {
+  position: absolute;
+  background-color: var(--main-bg-color);
+  
+  border: 0.25em solid var(--main-border-color);
+  border-radius: 2em;
+  
+  width: 2em;
+  height: 10em;
+  
+  top: 0.5em;
+  left: 0.25em;
+}
+
+
+#frame {
+  position: absolute;
+  margin: 1em;
+  border: 1px solid black;
+  width: 30em;
+  height:30em;
+  
+  
+}
+
+#golem {
+  
+}
+
+

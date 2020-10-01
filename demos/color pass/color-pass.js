@@ -37,7 +37,7 @@ class Entity {
     // should not be used at runtime, only during setup. doing this during runtime does not perform any inventory checks. it should only be called when creating new items or attaching orphaned items. it will be called by giveItem or requestItem as needed.
     this._contents.push(item);
     item.parent = this;
-    console.log(this.name + " received the " + item.name)
+//    console.log(this.name + " received the " + item.name)
   }
   // giveItem - triggers the other party's receiveItem
   giveItem(item, recipient) {
@@ -88,6 +88,11 @@ function playGame(players,ball){
     }
   }
   ballHolder.giveItem(ball,catchers[0]);
+  ballHolder.changeColor();
 }
 
 let game = setInterval(() => playGame([a,b],ball),300);
+
+Entity.prototype.changeColor = function() {
+    ball._element.style.backgroundColor = "rgb(" + Math.random()*255 + ", " + Math.random()*255 + ", " + Math.random()*255 + ")";
+}

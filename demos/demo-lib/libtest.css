@@ -1,0 +1,42 @@
+body { 
+  padding: 0; 
+  margin: 0;
+  background-color: #ccc;
+}
+
+.testbed {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  right: 5%;
+  bottom: 5%;
+  border: 1px solid black;
+  background-color: #fff;
+  box-shadow: 1px 1px 5px, inset 1px 1px 1px; 
+}
+
+.player{
+  border: 0.5em solid cyan;
+  background: lightblue;
+  position:absolute;
+  top: 1em;
+  left: 1em;
+  
+  width: 10em;
+  height: 10em;
+  
+  border-radius: 1em;
+}
+
+.barTest{
+  border: 1px solid red;
+  position: relative;
+  top: 5px;
+  height: 20px;
+  width: 100px;
+  display: flex;
+}
+
+.debug {
+  border: 1px dotted red;
+}
