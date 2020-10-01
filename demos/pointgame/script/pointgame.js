@@ -7,6 +7,9 @@ let productionTools = new Array();
 let chargingDock = {
   description: "<p>Charging Dock</p><p>Recharges the worker at a steady rate.</p>",
 }
+let pointMakerSlot = {
+  description: "<p>Point Grinder</p><p>Turns energy into points.</p>"
+}
 
 let points = {
   _element: document.createElement('p'),
@@ -55,6 +58,7 @@ worker._element.innerHTML =
   + "</p>";
 productionSlots[0]._element.appendChild(worker._element);
 productionTools[0].innerHTML = chargingDock.description;
+productionTools[1].innerHTML = pointMakerSlot.description;
 
 worker.updateEnergy = function() {
   worker._element.innerHTML = 
