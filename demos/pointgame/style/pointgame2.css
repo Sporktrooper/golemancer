@@ -11,10 +11,11 @@ body {
 }
 
 #gameContainer {
-  margin: 2vh 2vw;
+  margin: 2vh 4vw;
   background-color: white;
   border: 1vh double black;
-  height: 55em; 
+/*  width: 48em;*/
+  height: 30em; 
   box-shadow: 0.5em 0.1em 1em 0.1em cyan, -0.1em -0.1em 1em 0.1em magenta;
 }
 
@@ -33,8 +34,30 @@ body {
 }
 */
 
+.slot {
+  border: 0.5em solid #9ef;
+  border-radius: 1em;
+  width: 5em;
+  height: 5em;
+  margin: 0.1em;
+  background-color: #abe;
+  flex: none;
+}
+
+.draggable {
+  box-shadow: inset 0px 0px 5px 5px blue;
+  background-color: #08f;
+  height: 100%;
+  border-radius: 0.5em;
+}
+
+
 .draggable p {
+  color: white;
+  font-family: sans-serif;
   padding-top: 0.6em;
+  margin: 0;
+  text-align: center;
 }
 
 .box {
@@ -61,15 +84,15 @@ body {
 
 .descriptionBox {
   display: inline-block;
-  vertical-align: top;
-  border-radius: 0.2em;
+  vertical-align:top;
+  border-radius: 0.5em;
   background-color: #fff;
   margin: 0.1em;
   padding: 0.1em 0.5em;
 /*  flex: none;*/
-  border: 1px solid blue;
+  border: 0.5em solid #9ef;
   width: 19em;
-  height: 5em;
+  min-height: 4.8em;
 }
 
 #productionSlots {
@@ -88,7 +111,7 @@ body {
 
 .workLocFrame {
   display: inline-block;
-  border: 1px solid red;
+/*  border: 1px solid red;*/
 }
 
 .slot {
@@ -100,4 +123,10 @@ body {
   
   padding: 0;
   margin: 0;
+}
+
+.points {
+  position: absolute;
+  top: 0em;
+  right: 5em;
 }

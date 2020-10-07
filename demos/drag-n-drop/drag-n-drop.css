@@ -1,3 +1,7 @@
+body {
+  background-color: black;
+}
+
 .box {
   border: 0.5em solid #9ef;
   border-radius: 1em;
@@ -26,4 +30,16 @@
 /*  border: 1px dashed red;*/
   
   height: 19em;
+}
+
+.occupied {
+  border: 0.5em solid red;
+}
+
+.main {
+  border: 2px groove red;
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+  background-color: white;
 }

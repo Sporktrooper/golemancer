@@ -1,0 +1,43 @@
+* {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}
+
+.square {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  top: 0px;
+  left: 0px;
+  transition: background-color 1s, top 1.5s, left 2s, width 3s;
+}
+
+.square1 {
+  background-color: blue;
+  top: 200px;
+  left: 200px;
+  width: 80px;
+  height: 100px;
+  transition: background-color 1s, top 1.5s, left 2s, width 3s;
+}
+
+.square button {
+  top:50%;
+  left: 0%;
+  transition: top 1s, left 1s;
+}
+
+.square1 button {
+  top: 25%;
+  left: 50%;
+  transition: top 1s, left 1s;
+}
+
+.square button:active {
+  background-color: red;
+}
+
+.square1 button:active {
+  background-color: white;
+}

@@ -3,12 +3,26 @@
   --main-bg-color: #666;   
 }
 
-
 body {
   padding: 0;
   margin: 0;
   background-color: #eee;
 }
+
+#head {
+  position: relative;
+  border: 10px solid var(--main-border-color);
+  background-color: var(--main-bg-color);
+  top: -4em;
+  left: 0.85em;
+  width: 4em;
+  height: 3.5em;
+  border-top-left-radius: 4em;
+  border-top-right-radius: 4em;
+  border-bottom-left-radius: 60%;
+  border-bottom-right-radius: 60%;
+} 
+
 
 #torso {
   position: absolute;
@@ -27,6 +41,7 @@ body {
 }
 
 .shoulder {
+  z-index: 10;
   position: absolute;
   background-color: var(--main-bg-color);
   
@@ -57,11 +72,10 @@ body {
   
   top: 0.5em;
   left: 0.25em;
-  
+  z-index: -1;
   
 }
 #armL {
-  
 }
 #armR {
   
