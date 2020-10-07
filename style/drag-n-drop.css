@@ -1,4 +1,15 @@
 .box {
+/*  don't use, legacy bs for early demos */
+  border: 0.5em solid #9ef;
+  border-radius: 1em;
+  width: 5em;
+  height: 5em;
+  margin: 0.1em;
+  background-color: #abe;
+  flex: none;
+}
+
+.slot {
   border: 0.5em solid #9ef;
   border-radius: 1em;
   width: 5em;

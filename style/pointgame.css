@@ -1,6 +1,8 @@
+/*
 p { 
   margin: 0.1em 0.5em;
 }
+*/
 
 body { 
   margin: 0;
@@ -9,14 +11,14 @@ body {
 }
 
 #gameContainer {
-  margin: 2vh 4vw;
+  margin: 2vh 2vw;
   background-color: white;
   border: 1vh double black;
-  width: 95em;
   height: 55em; 
   box-shadow: 0.5em 0.1em 1em 0.1em cyan, -0.1em -0.1em 1em 0.1em magenta;
 }
 
+/*
 .frame {
   position: absolute;
   top: 0;
@@ -29,6 +31,7 @@ body {
   align-items: flex-start;
   border: 1px solid blue;
 }
+*/
 
 .draggable p {
   padding-top: 0.6em;
@@ -40,15 +43,30 @@ body {
   border: 1px solid blue;
 }
 
+/*
 .box p {
   margin:0;
 }
+*/
 
 .tools {
   border-radius: 0.2em;
   background-color: #fff;
   margin: 0.1em;
   flex: none;
+  border: 1px solid blue;
+  width: 19em;
+  height: 5em;
+}
+
+.descriptionBox {
+  display: inline-block;
+  vertical-align: top;
+  border-radius: 0.2em;
+  background-color: #fff;
+  margin: 0.1em;
+  padding: 0.1em 0.5em;
+/*  flex: none;*/
   border: 1px solid blue;
   width: 19em;
   height: 5em;
@@ -66,4 +84,20 @@ body {
   top: 0;
   width: 50em;
   height: 90%;
+}
+
+.workLocFrame {
+  display: inline-block;
+  border: 1px solid red;
+}
+
+.slot {
+  display: inline-block;
+  margin: 0.1em;
+}
+
+.descriptionBoxP {
+  
+  padding: 0;
+  margin: 0;
 }

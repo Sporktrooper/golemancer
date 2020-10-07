@@ -1,3 +1,43 @@
+'use strict'
+
+class WorkLocation {
+  constructor(name,description,cycleTime) {
+    // Name the work location
+    this.name = name;
+    this.slot = new DragSlot();
+    this.description = description;
+    this.effect = function () { 
+      // override after instantiating
+    }
+    this.cycleTime = cycleTime;
+    this.elements = {
+      frame: document.createElement('div'),
+      descriptionBox: document.createElement('div'),
+      slot: this.slot._element,
+      name: document.createElement('p'),
+      description: document.createElement('p'),
+    }
+    this.elements.name.innerHTML = this.name;
+    this.elements.description.innerHTML = this.description;
+    
+    this.elements.descriptionBox.classList.add('descriptionBox');
+    this.elements.slot.classList.add('slot');
+    this.elements.frame.classList.add('workLocFrame');
+    this.elements.name.classList.add('descriptionBoxP')
+    this.elements.description.classList.add('descriptionBoxP')
+    
+    this.elements.frame.appendChild(this.elements.slot);
+    this.elements.frame.appendChild(this.elements.descriptionBox);
+    
+    this.elements.descriptionBox.appendChild(this.elements.name);
+    this.elements.descriptionBox.appendChild(this.elements.description);
+  }
+}
+
+let slotTest = document.querySelector("#slotTest");
+let wlctest = new WorkLocation("test bench","a bench made for testing",1000);
+slotTest.appendChild(wlctest.elements.frame);
+
 let updateCycle = 1000;
 
 let main = document.querySelector('#gameContainer');
@@ -35,11 +75,11 @@ productionSlots.push(new DragSlot());
 productionSlots.push(new DragSlot());
 
 for (let i = 0; i < productionSlots.length; i++) {
-  productionSlots.element.appendChild(productionSlots[i]._element);
+//  productionSlots.element.appendChild(productionSlots[i]._element);
   let toolbox = document.createElement('div');
   toolbox.classList.add('tools');
   toolbox.id = "tools-" + i;
-  productionSlots.element.appendChild(toolbox);
+//  productionSlots.element.appendChild(toolbox);
   productionTools.push(toolbox);
 }
 
@@ -56,7 +96,7 @@ worker._element.innerHTML =
   + " / "
   + worker.energyMax
   + "</p>";
-productionSlots[0]._element.appendChild(worker._element);
+wlctest.elements.slot.appendChild(worker._element);
 productionTools[0].innerHTML = chargingDock.description;
 productionTools[1].innerHTML = pointMakerSlot.description;
 

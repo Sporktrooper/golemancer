@@ -11,9 +11,8 @@ class DragSlot {
         let data = document.getElementById(e.dataTransfer.getData('text'))
         e.target.appendChild(data);
         this.occupant = data.obj;
-        this.effectOnOccupant();
-        this.occupant.effectOnSlot(this);
         this.occupant.location = this;
+        this.occupant._oldLocation = this;
       } 
     });
     this._element.addEventListener('dragover', (e) => {
@@ -25,18 +24,13 @@ class DragSlot {
   effect() {
     // override
   }
-  effectOnOccupant() {
-    // override
-  }
-  onExit(occupant) {
-    // override
-  }
 }
 
 class DragItem {
   // Represents a draggable item on the grid.
   constructor() {
     this.location;
+    this._oldLocation;
     this._element = document.createElement('div');
     this._element.classList.add('draggable');
     this._element.obj = this;
@@ -45,7 +39,6 @@ class DragItem {
     this._element.addEventListener('dragstart', (e) => {
       e.dataTransfer.setData('text/plain', e.target.id);
       e.dataTransfer.effectAllowed = 'move';
-      this.location.onExit(this)
     });
   }
   onLeave() {
@@ -62,27 +55,22 @@ class SlotItemObserver {
   constructor(parent) {
     this.slots = new Array();
     this.items = new Array();
-    this._interval;
     this.elements = {
       parent: parent || null,
       top: document.createElement('div'),
     }
-    this.cycleTime = 1000;
+    this.interval;
+    this.cycleTime;
     if (this.elements.parent) {
       this.elements.parent.appendChild(this.elements.top);
 //      console.log('attached to parent')
     }
-    this.intervalStart = function() {
-      this._interval = setInterval(() => {
-        for(let i = 0; i < this.slots.length; i++) {
-          this.slots[i].effect();
-        }
-      }, this.cycleTime);
-    }
   }
   addSlot(slot) {
     let newSlot = slot || new DragSlot();
+//    newSlot._element.classList.add('box');
     this.slots.push(newSlot);
+//    this.elements.top.appendChild(newSlot._element);
   }
   addMultipleSlots(qty) {
     for (let i = 0; i < qty; i++) {
@@ -93,7 +81,95 @@ class SlotItemObserver {
     let newItem = item || new DragItem();
     this.items.push(newItem);
   }
-  intervalStop() {
-    clearInterval(this._interval);
-  }
 }
+
+//// SLOT OBSERVER TEST
+//
+//let obsTestElem = document.querySelector(".main");
+//
+//let observer = new SlotItemObserver(obsTestElem);
+//
+//let itemBChannel = '255'
+//observer.addSlot();
+//observer.addSlot();
+//observer.cycleTime = 1000;
+//observer.interval = setInterval(function() {
+////  console.log('interval beat');
+//  observer.slots[0].effect();
+//  observer.slots[1].effect();
+//},observer.cycleTime);
+//
+//
+//
+//let item = new DragItem();
+//observer.addItem(item);
+//observer.slots[0]._element.appendChild(item._element);
+//observer.slots[0].occupant = item;
+//
+//observer.printStatuses = function() {
+//  console.log("Slots:");
+//  for (let i = 0; i < this.slots.length; i++) {
+//    console.log(this.slots[i]._element);
+//  }
+//  console.log('');
+//  console.log("Items:");
+//  for (let i = 0; i < this.items.length; i++) {
+//    console.log(this.items[i]._element);
+//  }
+//}
+//
+//
+//
+//observer.slots[0].effect = function() {
+//  if(observer.slots[0]._element.firstChild && itemBChannel >= 0){
+//  observer.slots[0].occupant._element.style.backgroundColor = 'rgb(0,0,' + itemBChannel + ')';
+//  itemBChannel -= 5;
+//  console.log('slot 0 effect fired, ' + itemBChannel + observer.slots[0].occupant._element)
+//  }
+//}
+//
+//observer.slots[1].effect = function() {
+//  if(observer.slots[1]._element.firstChild && itemBChannel < 255) {
+//    observer.slots[1].occupant._element.style.backgroundColor = 'rgb(0,0,' + itemBChannel + ')';
+//    itemBChannel += 5
+//    console.log('slot 1 effect fired, ' + itemBChannel);
+//  }
+//}
+
+
+//  3x3 TEST
+
+
+
+//let testFrame = document.createElement('div');
+//testFrame.setAttribute('id','testFrame');
+//document.querySelector('.main').appendChild(testFrame);
+//
+//
+//tAr = new Array(9);
+//for (let i = 0; i < tAr.length; i++) {
+//  tAr[i] = new DragSlot();
+//  tAr[i]._element.classList.add('box');
+//  tAr[i]._element.setAttribute('id','box-' + i)
+//  testFrame.appendChild(tAr[i]._element);
+//}
+//
+//let dragItems = new Array(3);
+//for (let i = 0; i < dragItems.length; i++) {
+//  dragItems[i] = new DragItem();
+//  dragItems[i]._element.setAttribute('id','drag-' + i);
+//  dragItems[i]._element.classList.add('draggable');
+//  tAr[i]._element.appendChild(dragItems[i]._element);
+//  tAr[i].occupant = dragItems[i];
+//  dragItems[i].location = tAr[i];
+//  
+//}
+//
+//tAr[0].effectOnOccupant = function() {
+//  this.occupant._element.style.backgroundColor = '#0f0'
+//}
+//
+//dragItems[0].effectOnSlot = function() {
+//  this.location._element.style.backgroundColor = '#0f0';
+//}
+//

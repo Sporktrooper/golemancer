@@ -92,48 +92,56 @@ class SlotItemObserver {
 
 // SLOT OBSERVER TEST
 
-//let obsTestElem = document.querySelector(".main");
-//
-//let observer = new SlotItemObserver(obsTestElem);
-//
-//let itemBChannel = '255'
-//observer.addSlot();
-//observer.addSlot();
-//observer.cycleTime = 1000;
-//observer.interval = setInterval(function() {
-////  console.log('interval beat');
-//  observer.slots[0].effect();
-//},observer.cycleTime);
-//
-//
-//
-//let item = new DragItem();
-//observer.addItem(item);
-//observer.slots[0]._element.appendChild(item._element);
-//
-//observer.printStatuses = function() {
-//  console.log("Slots:");
-//  for (let i = 0; i < this.slots.length; i++) {
-//    console.log(this.slots[i]._element);
-//  }
-//  console.log('');
-//  console.log("Items:");
-//  for (let i = 0; i < this.items.length; i++) {
-//    console.log(this.items[i]._element);
-//  }
-//}
-//
-//
-//
-//observer.slots[0].effect = function() {
-//  if(observer.slots[0]._element.firstChild && itemBChannel >= 0){
-//  observer.slots[0].occupant._element.style.backgroundColor = 'rgb(0,0,' + itemBChannel + ')';
-//  itemBChannel -= 10;
-//  console.log('effect fired, ' + itemBChannel + observer.slots[0].occupant._element)
-//  }
-//}
-//
+let obsTestElem = document.querySelector(".main");
 
+let observer = new SlotItemObserver(obsTestElem);
+
+let itemBChannel = '255'
+observer.addSlot();
+observer.addSlot();
+observer.cycleTime = 1000;
+observer.interval = setInterval(function() {
+//  console.log('interval beat');
+  observer.slots[0].effect();
+  observer.slots[1].effect();
+},observer.cycleTime);
+
+
+
+let item = new DragItem();
+observer.addItem(item);
+observer.slots[0]._element.appendChild(item._element);
+observer.slots[0].occupant = item;
+
+observer.printStatuses = function() {
+  console.log("Slots:");
+  for (let i = 0; i < this.slots.length; i++) {
+    console.log(this.slots[i]._element);
+  }
+  console.log('');
+  console.log("Items:");
+  for (let i = 0; i < this.items.length; i++) {
+    console.log(this.items[i]._element);
+  }
+}
+
+
+
+observer.slots[0].effect = function() {
+  if(observer.slots[0]._element.firstChild && itemBChannel >= 0){
+  observer.slots[0].occupant._element.style.backgroundColor = 'rgb(0,0,' + itemBChannel + ')';
+  itemBChannel -= 5;
+  console.log('slot 0 effect fired, ' + itemBChannel + observer.slots[0].occupant._element)
+  }
+}
+
+observer.slots[1].effect = function() {
+  if(observer.slots[1]._element.firstChild && itemBChannel < 255) {
+    observer.slots[1].occupant._element.style.backgroundColor = 'rgb(0,0,' + itemBChannel + ')';
+    itemBChannel += 5
+    console.log('slot 1 effect fired, ' + itemBChannel);
+  }
+}
 
 
 //  3x3 TEST
