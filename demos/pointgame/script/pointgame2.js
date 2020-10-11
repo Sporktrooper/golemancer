@@ -198,3 +198,5 @@ controlPanel.buttons.button2.addEventListener('click',(e) => {
 //    points.changePoints(-10);
 //  }
 //})
+
+let pbar = new ProgressBar();
