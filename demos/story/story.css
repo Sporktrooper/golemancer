@@ -21,10 +21,10 @@ body {
   height: 60vw;
   overflow: auto;
   background-color: bisque;
-  display: table-cell;
+/*  display: table-cell;*/
   min-width: 83vw;
-  vertical-align: bottom;
-  display: inline-block;
+/*  vertical-align: bottom;*/
+/*  display: inline-block;*/
   box-shadow: -1px 1px 2px #000;
 }
 
@@ -32,10 +32,10 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-  overflow-y: scroll;
+/*  overflow-y: scroll;*/
   
-  scrollbar-width: thin;
-  scrollbar-color: blue orange;
+/*  scrollbar-width: thin;*/
+/*  scrollbar-color: blue orange;*/
 }
 
 #log ul::-webkit-scrollbar{

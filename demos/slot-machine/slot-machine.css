@@ -1,0 +1,35 @@
+.bar-holder {
+  background-color: aquamarine;
+  
+/*  min-height: 1em;*/
+  width: 40%;
+  flex: 1;
+}
+.bar {
+  height: 100%;
+}
+.bar.full {
+  animation: myFill 1s infinite;
+  animation-timing-function: ease-in-out;
+/*  animation-direction: alternate;*/
+}
+
+@keyframes myFill { 
+  from {
+    background-color: black;
+    width: 0%;
+  }
+  
+  12% { background-color: red; }
+  24% { background-color: orange; }
+  36% { background-color: yellow; }
+  48% { background-color: green; }
+  60% { background-color: blue; }
+  72% { background-color: indigo; }
+  84% { background-color: violet; }
+  
+  to {
+    background-color: white;
+    width: 100%;
+  }
+}

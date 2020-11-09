@@ -140,3 +140,17 @@ class Level {
 }
 
 let lv1 = new Level(10,"passive");
+
+function testAnimationFunc(element) {
+  element.animate([
+      { //from 
+        backgroundColor: 'blue'
+      },
+      { //to 
+        backgroundColor: 'red'
+      }
+    ],{
+      iterations: 1,
+      duration: 1000,
+    })
+}

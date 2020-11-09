@@ -1,0 +1,19 @@
+body {
+  padding: none;
+  margin: none;
+  background-color: black;
+  color: white;
+  font-family: sans-serif
+}
+
+.circle {
+  position: absolute;
+/*  height: 50px;*/
+/*  width: 50px;*/
+  background-color: rgb(0,0,0,0);
+  border-radius: 50%;
+  border-color: white;
+/*  border-width: 3px;*/
+  border-style: solid;
+  transform-origin: center;
+}

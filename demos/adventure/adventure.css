@@ -1,0 +1,68 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  padding: 0;
+  margin: 0;
+}
+
+#buttonBar {
+/*  border: 1px solid red;*/
+  position: absolute;
+  bottom: 0;
+  padding: 3px;
+  padding-left: 0;
+}
+#buttonBar button {
+  margin-left: 3px;
+}
+
+#logHolder {
+  vertical-align: bottom;
+  overflow: auto;
+}
+#log {
+  margin: 0;
+/*  position: absolute;*/
+  bottom: 30px;
+  top: 0px;
+  max-width: 300px;
+  width: 300px;
+/*  border: 1px solid black;*/
+}
+ul {
+/*  list-style: none;*/
+  list-style: none;
+  padding-left: 0.5em;
+  overflow-y: scroll;
+  display: inline-block;
+}
+li {
+  padding-top: 0.25em;
+}
+
+.panel {
+  border: 1px solid black;
+  position: absolute;
+}
+
+#heroPane {
+/*  border: 1px solid red;*/
+  left: 320px;
+  top: 0px;
+  width: 170px;
+  height: 200px;
+  padding-left: 0.5em;
+}
+
+#eventPane {
+  left: 320px;
+  top: 220px;
+}

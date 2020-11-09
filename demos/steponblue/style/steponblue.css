@@ -114,8 +114,8 @@ body {
 
 .trackStep.on {
 
-  background-color: blue;
-  box-shadow: 0px 0px 40px inset cyan
+  background-color: gold;
+  box-shadow: 0px 0px 40px inset red;
 }
 
 .trackLine.solved {

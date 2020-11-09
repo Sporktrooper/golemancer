@@ -1,0 +1,67 @@
+button {
+  user-select: none;
+}
+
+body {
+  background-color: #333;
+}
+
+#gameContainer {
+/*  border: 1px solid red;*/
+}
+
+.walkTrack {
+  border: 1px solid #ddd;
+  height: 2em;  
+  width: 30em;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background-color: red;
+  width: 0%;
+}
+
+.bar.fill {
+  animation-name: barFill;
+  animation-duration: 3s;
+  animation-direction: normal;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+}
+
+.bar.empty {
+  animation-name: barEmpty;
+  animation-duration: 3s;
+  animation-direction: normal;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes barFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes barEmpty {
+  from {
+    width: 100%;
+    background-color: red;
+  }
+  to {
+    width: 0%;
+    background-color: blue;
+  }
+}
+
+#log {
+  user-select: none;
+  color: white;
+  text-shadow: 0px 0px 3px black;
+  margin-top: 1em;
+}
