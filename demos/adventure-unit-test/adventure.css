@@ -66,7 +66,7 @@ p {
     width: 0;
   }
   to {
-    width: 0%;
+    width: 100%;
     /* SET WIDTH BACK TO 100% WHEN IT WON'T BURN MY LEGS */
   }
 }
@@ -85,4 +85,11 @@ p {
 
 .actionButton:active {
   background-color: rgba(0,255,0,0.25);
+}
+
+.upgradeText {
+  user-select: none;
+}
+.upgradeText:active {
+  color: green;
 }
