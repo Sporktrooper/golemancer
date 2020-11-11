@@ -8,8 +8,8 @@ let gameContainer = document.querySelector('#gameContainer'),
     unitDetails = document.createElement('div'),
     baseFillDuration = 1,
     unitAttributes = {
-      power: 1,
-      speed: 50,
+      power: 10,
+      speed: 500,
       endurance: 40,
       durability: 30,
       maxDurability: 30,
@@ -66,11 +66,15 @@ unitAttributes.elements.appendChild(unitAttributes.elements.power);
 unitAttributes.elements.power.upgrade = document.createElement('span');
 unitAttributes.elements.power.upgrade.classList.add('upgradeText');
 unitAttributes.elements.power.upgrade.innerHTML = " Upgrade";
-unitAttributes.power.upgradeCost = unitAttributes.power * 3;
+unitAttributes.powerUpgradeCost = Math.round(unitAttributes.power / 3);
 
 unitAttributes.elements.speed = document.createElement('p');
 unitAttributes.elements.speed.innerHTML = "Speed: " + unitAttributes.speed;
 unitAttributes.elements.appendChild(unitAttributes.elements.speed);
+unitAttributes.elements.speed.upgrade = document.createElement('span');
+unitAttributes.elements.speed.upgrade.classList.add('upgradeText');
+unitAttributes.elements.speed.upgrade.innerHTML = " Upgrade";
+unitAttributes.speedUpgradeCost = Math.round(unitAttributes.speed / 3);
 
 unitAttributes.elements.endurance = document.createElement('p');
 unitAttributes.elements.endurance.innerHTML = "Endurance: " + unitAttributes.endurance;
@@ -129,23 +133,21 @@ function tick() {
   if (unitAttributes.durability == 0) {
     unitBar.inner.style["animation-duration"] = (10 * (100/unitAttributes.speed)) + "s";
   }
-  if (iron.qty >= unitAttributes.power.upgradeCost) {
-    unitAttributes.elements.power.appendChild(unitAttributes.elements.power.upgrade);
-  }
+  checkForUpgrades();
 }
 function finishedWorkCycle() {
   if (unitAttributes.durability > 0) {
-   addResource("rocks",unitAttributes.power); 
     if(Math.random() > (unitAttributes.endurance/100)) {
       modifyAttributes('durability',-1)
     }
   }
+   addResource("rocks",unitAttributes.power/10); 
 }
 
 function addResource(type,qty) {
   switch (type) {
     case "rocks":
-      if (rocks.qty == 10 && !grind10Rocks.parentElement){
+      if (rocks.qty >= 10 && !grind10Rocks.parentElement){
         buttons.appendChild(grind10Rocks);
       }
       rocks.qty += qty;
@@ -206,6 +208,25 @@ function modifyAttributes(attribute,value) {
       break;
     case "maxDurability":
       unitAttributes.maxDurability += value;
+      break;
+  }
+}
+
+function checkForUpgrades() {
+  if (iron.qty >= unitAttributes.powerUpgradeCost) {
+    unitAttributes.elements.power.upgrade.innerHTML = " Upgrade (Costs " + unitAttributes.powerUpgradeCost + " iron)";
+    unitAttributes.elements.power.appendChild(unitAttributes.elements.power.upgrade);
+  }
+  if (iron.qty >= unitAttributes.speedUpgradeCost) {
+    unitAttributes.elements.speed.upgrade.innerHTML = " Upgrade (Costs " + unitAttributes.speedUpgradeCost + " iron)";
+    unitAttributes.elements.speed.appendChild(unitAttributes.elements.speed.upgrade);
+  }
+}
+
+function displayUpgrade(attribute) {
+  switch (attribute) {
+    case "power" :
+      
       break;
   }
 }

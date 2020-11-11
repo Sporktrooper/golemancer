@@ -24,7 +24,7 @@ p {
   border: 0.1em solid red;
 }
 
-#unitFrame {
+#deviceFrame {
   min-height: 1em;
   display: flex;
   flex-flow: row wrap;
@@ -37,23 +37,23 @@ p {
   margin-bottom: 1em;
 }
 
-#unitName {
+#deviceName {
 /*  border: 0.1em solid black;*/
 }
 
-#unitSummary {
+#deviceSummary {
 /*  border: 0.1em solid black;*/
 }
 
-#unitBar {
+#deviceBar {
   border: 0.1em solid rgba(0,0,0,0.1);
   width: 100%;
   height: 0.3em
 }
-#unitBarInner {
+#deviceBarInner {
   background-color: springgreen;
   width: 0;
-  height: 00%;
+  height: 100%;
   
   animation-name: fillBar;
   animation-duration: 3s;
@@ -66,12 +66,12 @@ p {
     width: 0;
   }
   to {
-    width: 100%;
+    width: 00%;
     /* SET WIDTH BACK TO 100% WHEN IT WON'T BURN MY LEGS */
   }
 }
 
-#unitDetails {
+#deviceDetails {
 /*  border: 0.1em solid black;*/
   width: 100%;
 }
