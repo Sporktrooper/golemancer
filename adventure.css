@@ -24,7 +24,7 @@ p {
   border: 0.1em solid red;
 }
 
-#deviceFrame {
+#unitFrame {
   min-height: 1em;
   display: flex;
   flex-flow: row wrap;
@@ -37,23 +37,23 @@ p {
   margin-bottom: 1em;
 }
 
-#deviceName {
+#unitName {
 /*  border: 0.1em solid black;*/
 }
 
-#deviceSummary {
+#unitSummary {
 /*  border: 0.1em solid black;*/
 }
 
-#deviceBar {
+#unitBar {
   border: 0.1em solid rgba(0,0,0,0.1);
   width: 100%;
   height: 0.3em
 }
-#deviceBarInner {
+#unitBarInner {
   background-color: springgreen;
   width: 0;
-  height: 100%;
+  height: 00%;
   
   animation-name: fillBar;
   animation-duration: 3s;
@@ -61,9 +61,17 @@ p {
   animation-timing-function: linear;
   animation-direction: normal;
 }
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+    /* SET WIDTH BACK TO 100% WHEN IT WON'T BURN MY LEGS */
+  }
+}
 
-
-#deviceDetails {
+#unitDetails {
 /*  border: 0.1em solid black;*/
   width: 100%;
 }
@@ -74,29 +82,13 @@ p {
   padding: 1em;
   user-select: none;
 }
-.actionButtonFill {
-/*  position: relative;*/
-  background-color: lightgray;
-  width: 100%;
-  height: 5px;
-  padding: 0;
-/*  border: 0.1em solid red;*/
-  
-
-}
-.actionButtonFillInner {
-  padding: 0;
-  margin: 0;
-  background-color: blue;
-  width: 5px;
-  height: 100%;
-  
-  animation-name: fillBar;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-direction: normal;
-  animation-play-state: running;
+@keyframes reverseFillBar {
+  from {
+    width: 100%
+  }
+  to {
+    width: 0%
+  }
 }
 
 .actionButton:active {
@@ -108,14 +100,4 @@ p {
 }
 .upgradeText:active {
   color: green;
-}
-
-@keyframes fillBar {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-    /* SET WIDTH BACK TO 100% WHEN IT WON'T BURN MY LEGS */
-  }
 }
