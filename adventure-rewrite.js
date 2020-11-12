@@ -9,7 +9,7 @@ let gameContainer = document.querySelector('#gameContainer'),
       details: document.createElement('div'),
       attributes: {
         power: { val: 10, element: document.createElement('p') },
-        speed: { val: 500, element: document.createElement('p') },
+        speed: { val: 50, element: document.createElement('p') },
         endurance: { val: 40, element: document.createElement('p') },
         durability: { val: 30, element: document.createElement('p') },
         maxDurability: { val: 30, element: document.createElement('p') },
