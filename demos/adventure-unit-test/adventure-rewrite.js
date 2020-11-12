@@ -137,7 +137,7 @@ let sandHopper = new ActionButton("Install a hopper to collect sand from the gri
 });
 sandHopper.inUse = false;
 
-let rockCompartment = new ActionButton("Add a compartment to the device which will allow it to carry multiple rocks. Gather 4 times as many rocks at a time, but take twice as long. (Costs 4 iron)",function() {
+let rockCompartment = new ActionButton("Give the device storage. Gather 4 times as many rocks at a time, but take twice as long. (Costs 4 iron)",function() {
   if (resources.iron.qty >= 4) {
     removeResource("iron",4);
     modifyAttributes("power",device.attributes.power.val * 3);
@@ -149,7 +149,7 @@ let rockCompartment = new ActionButton("Add a compartment to the device which wi
 });
 rockCompartment.inUse = false;
 
-let lighterFrame = new ActionButton("Remove 'unnecessary' parts to make the device faster. The device becomes more fragile. (Costs 3 glass and 3 iron)",function(){
+let lighterFrame = new ActionButton("Streamline the device. It becomes faster, but more fragile. (Costs 3 glass and 3 iron)",function(){
   if (resources.iron.qty >= 3 && resources.glass.qty >= 3) {
     removeResource("iron",3);
     removeResource("glass",3);
@@ -161,7 +161,7 @@ let lighterFrame = new ActionButton("Remove 'unnecessary' parts to make the devi
 });
 lighterFrame.inUse = false;
 
-let grinderHopper = new ActionButton("Install a hopper on top of the grinder and have the device dump its rocks straight in. Automates rock grinding but it's prone to jamming. (Costs 10 iron and 5 glass)",function(){
+let grinderHopper = new ActionButton("Install a hopper on top of the grinder. Automates rock grinding but it's prone to jamming. (Costs 10 iron and 5 glass)",function(){
   if (resources.iron.qty >= 10 && resources.glass.qty >= 5) {
     removeResource("iron",10);
     removeResource("glass",5);
