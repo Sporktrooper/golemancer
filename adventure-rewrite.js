@@ -1,6 +1,6 @@
 let gameContainer = document.querySelector('#gameContainer'),
 //    gameClock = document.querySelector('#gameClock'),
-    gameClock = setInterval(function(){tick()},5000),
+    gameClock = setInterval(function(){tick()},1000),
     device = {
       frame: document.querySelector('#deviceFrame'),
       name: document.createElement('div'),
@@ -73,8 +73,6 @@ device.attributes.elements.appendChild(device.attributes.endurance.element);
 
 device.attributes.durability.element.innerHTML = "Durability: " + device.attributes.durability.val + " / " + device.attributes.maxDurability.val;
 device.attributes.elements.appendChild(device.attributes.durability.element);
-
-
 
 
 // ======================== BUTTONS =========================

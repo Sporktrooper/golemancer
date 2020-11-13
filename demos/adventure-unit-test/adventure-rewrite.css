@@ -68,11 +68,48 @@ p {
   width: 100%;
 }
 
+#log {
+  border: 1px solid black;
+  height: 8em;
+  border-radius: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+
+#log ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5em
+}
+#log ul li {
+  padding: 0;
+  margin: 0;
+  
+  animation-name: logFade;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+
+@keyframes logFade {
+  from {
+    color: black;
+  }
+  to {
+    color: grey;
+  }
+}
+
 .actionButton {
   border: 0.1em solid black;
   border-radius: 1em;
   padding: 1em;
   user-select: none;
+}
+
+.actionButton.oneTime{
+  border-color: brown;
 }
 .actionButtonFill {
 /*  position: relative;*/
