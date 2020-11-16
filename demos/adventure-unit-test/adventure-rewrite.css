@@ -24,7 +24,7 @@ p {
   border: 0.1em solid red;
 }
 
-#deviceFrame {
+.deviceFrame {
   min-height: 1em;
   display: flex;
   flex-flow: row wrap;
@@ -45,12 +45,12 @@ p {
 /*  border: 0.1em solid black;*/
 }
 
-#deviceBar {
+.deviceBar {
   border: 0.1em solid rgba(0,0,0,0.1);
   width: 100%;
   height: 0.3em
 }
-#deviceBarInner {
+.deviceBarInner {
   background-color: springgreen;
   width: 0;
   height: 100%;
@@ -63,7 +63,7 @@ p {
 }
 
 
-#deviceDetails {
+.deviceDetails {
 /*  border: 0.1em solid black;*/
   width: 100%;
 }
@@ -90,7 +90,34 @@ p {
   animation-iteration-count: 1;
   animation-direction: normal;
   animation-fill-mode: forwards;
+  user-select: none;
 }
+
+.log {
+  border: 1px solid black;
+  height: 8em;
+  border-radius: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+
+.log ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5em
+}
+.log ul li {
+  padding: 0;
+  margin: 0;
+  
+  animation-name: logFade;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  user-select: none;
+}
+
 
 @keyframes logFade {
   from {
@@ -102,6 +129,7 @@ p {
 }
 
 .actionButton {
+  margin-top: 0.02em;
   border: 0.1em solid black;
   border-radius: 1em;
   padding: 1em;
@@ -129,7 +157,7 @@ p {
   height: 100%;
   
   animation-name: fillBar;
-  animation-duration: 5s;
+  animation-duration: 1000ms;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   animation-direction: normal;
