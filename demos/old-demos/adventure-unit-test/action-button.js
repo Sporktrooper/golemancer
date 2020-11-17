@@ -2,15 +2,20 @@ class ActionButton {
   constructor(name, buttonText,clickAction,repeat,duration) {
     this.effect = clickAction;
     this.autoRepeat = false;
+    this.canRun = false;
     this.element = document.createElement('div');
     this.element.id = name;
     this.element.classList.add('actionButton');
     this.element.innerHTML = buttonText || "buttonText undefined";
     this.element.addEventListener('click', () => {
+      if(this.canRun == true) {
+        console.log('can run');
+        this.element.inner.filler.style["animation-play-state"] = "running";
+      }
       if(!this.element.inner.parentElement) {
         this.effect();
       }
-      this.element.inner.filler.style["animation-play-state"] = "running";
+//      this.element.inner.filler.style["animation-play-state"] = "running";
       if(!repeat == true) {
         this.element.parentNode.removeChild(this.element);
       }
@@ -23,7 +28,6 @@ class ActionButton {
     this.element.inner.appendChild(this.element.inner.filler);
     this.element.inner.filler.style["animation-play-state"] = "paused";
     this.element.inner.filler.addEventListener('animationiteration',() => {
-      
       this.effect();
       if(!this.autoRepeat) {
        this.element.inner.filler.style["animation-play-state"] = "paused"; 
@@ -37,6 +41,14 @@ class ActionButton {
     if(duration) {
       this.cycleTime(duration);
       this.hasDuration(true);
+    }
+  }
+  fireEffect(costPaid,repeat) {
+    if (costPaid,repeat) {
+      this.element.inner.filler.style["animation-play-state"] = "running";
+      if(!repeat == true) {
+        this.element.parentNode.removeChild(this.element);
+      }
     }
   }
   cycleTime(speedInMS){

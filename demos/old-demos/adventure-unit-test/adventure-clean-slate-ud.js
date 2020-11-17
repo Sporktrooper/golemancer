@@ -28,17 +28,23 @@ device.writeLog("The device whirs to life and awaits instructions.")
 device.addActionButton('collect-rock',"Collect a rock.",function() {
   if(device._attributes.durability > 0) {
     addResource("rocks",1); 
-    if (resources.rock.qty == 10) {
+    if (resources.rock.qty >= 10 && !device.buttons['collect-rock'].autoRepeat) {
       addRepeatRocksButton();
     }
+    
+    // once gathering is automated, stop adding log entries
     if(!device.buttons['collect-rock'].autoRepeat) {
       device.writeLog("The device brings you a rock.");
       }
+    
+    // check for durability loss
     if(!device.checkSuccess(device._attributes.endurance/100)){
       device.modifyAttributes("durability",-1);
       console.log('durability lost to rocks');
     }
   }
+  
+  // stop gathering at 0 durability -- doesn't work
   if(device._attributes.durability == 0) {
     console.log('no durability left');
     device.buttons['collect-rock'].element.inner.filler.style["animation-play-state"] = "paused"
@@ -66,3 +72,9 @@ device.addActionButton('grind-rocks',"Grind 10 rocks",function() {
     console.log('enough rocks');
   }
 },true,5000)
+
+function upgrades() {
+  if (resources.rock.qty >= 10) {
+    device.buttons['grind-rocks'].canRun = true;
+  }
+}
