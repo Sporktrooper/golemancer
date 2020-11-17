@@ -14,9 +14,6 @@ resources.sand.element.innerHTML = "Sand: " + resources.sand.qty;
 function addResource(type,qty) {
   switch (type) {
     case "rocks":
-      if (resources.rock.qty >= 10 && !grind10Rocks.element.parentElement){
-        buttons.appendChild(grind10Rocks.element);
-      }
       resources.rock.qty += qty;
       resources.rock.element.innerHTML = "Rocks: " + Math.floor(resources.rock.qty);
       break;
@@ -26,17 +23,11 @@ function addResource(type,qty) {
       displayUpgrade("iron");
       break;
     case "sand":
-      if(resources.sand.qty == 0 && !resources.sand.element.parentNode) {
-        resources.element.appendChild(resources.sand.element);
-      }
       resources.sand.qty += qty;
       resources.sand.element.innerHTML = "Sand: " + resources.sand.qty;
       displayUpgrade("sand");
       break;
     case "glass":
-      if(resources.glass.qty == 0 && !resources.glass.element.parentNode) {
-        resources.element.appendChild(resources.glass.element)
-      }
       resources.glass.qty += qty;
       resources.glass.element.innerHTML = "Glass: " + resources.glass.qty;
   }

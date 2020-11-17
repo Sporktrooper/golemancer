@@ -1,66 +1,66 @@
 // quietly
 
-class ActionButton {
-  constructor(name, buttonText,clickAction,repeat) {
-    this.effect = clickAction;
-    this.element = document.createElement('div');
-    this.element.id = name;
-    this.element.classList.add('actionButton');
-    this.element.innerHTML = buttonText || "buttonText undefined";
-    this.element.addEventListener('click', () => {
-      if(!this.element.inner.parentElement) {
-        this.effect();
-      }
-      this.element.inner.filler.style["animation-play-state"] = "running";
-      if(!repeat == true) {
-        this.element.parentNode.removeChild(this.element);
-      }
-    });
-    
-    this.element.inner = document.createElement('div');
-    this.element.inner.classList.add('actionButtonFill');
-    this.element.inner.filler = document.createElement('div');
-    this.element.inner.filler.classList.add('actionButtonFillInner');
-    this.element.inner.appendChild(this.element.inner.filler);
-    this.element.inner.filler.style["animation-play-state"] = "paused";
-    this.element.inner.filler.addEventListener('animationiteration',() => {
-      this.effect();
-      if(!repeat) {
-       this.element.inner.filler.style["animation-play-state"] = "paused"; 
-      }
-    })
-    if(!repeat == true) {
-//      console.log('repeat was true')
-      this.element.classList.add('oneTime');
-      this.inUse;
-    }
-  }
-  cycleTime(speedInMS){
-    this.element.inner.filler.style["animation-duration"] = speedInMS + "ms";
-  }
-  hasDuration(state) {
-    this.element.appendChild(this.element.inner);
-//    this.element.inner.filler.style["animation-iteration-count"] = 1;
-//    this.element.addEventListener('click',() => {
+//class ActionButton {
+//  constructor(name, buttonText,clickAction,repeat) {
+//    this.effect = clickAction;
+//    this.element = document.createElement('div');
+//    this.element.id = name;
+//    this.element.classList.add('actionButton');
+//    this.element.innerHTML = buttonText || "buttonText undefined";
+//    this.element.addEventListener('click', () => {
+//      if(!this.element.inner.parentElement) {
+//        this.effect();
+//      }
+//      this.element.inner.filler.style["animation-play-state"] = "running";
+//      if(!repeat == true) {
+//        this.element.parentNode.removeChild(this.element);
+//      }
+//    });
+//    
+//    this.element.inner = document.createElement('div');
+//    this.element.inner.classList.add('actionButtonFill');
+//    this.element.inner.filler = document.createElement('div');
+//    this.element.inner.filler.classList.add('actionButtonFillInner');
+//    this.element.inner.appendChild(this.element.inner.filler);
+//    this.element.inner.filler.style["animation-play-state"] = "paused";
+//    this.element.inner.filler.addEventListener('animationiteration',() => {
+//      this.effect();
+//      if(!repeat) {
+//       this.element.inner.filler.style["animation-play-state"] = "paused"; 
+//      }
 //    })
-//    this.
-  }
-  automaticRepeat(state) {
-    if(state == true) {
-      this.element.appendChild(this.element.inner);
-      this.element.inner.filler.style["animation-play-state"] = "running";
-      this.element.inner.filler.style["animation-iteration-count"] = "infinite";
-    } else {
-      this.element.inner.filler.style["animation-iteration-count"] = 1;
-    }
-  }
-}
+//    if(!repeat == true) {
+////      console.log('repeat was true')
+//      this.element.classList.add('oneTime');
+//      this.inUse;
+//    }
+//  }
+//  cycleTime(speedInMS){
+//    this.element.inner.filler.style["animation-duration"] = speedInMS + "ms";
+//  }
+//  hasDuration(state) {
+//    this.element.appendChild(this.element.inner);
+////    this.element.inner.filler.style["animation-iteration-count"] = 1;
+////    this.element.addEventListener('click',() => {
+////    })
+////    this.
+//  }
+//  automaticRepeat(state) {
+//    if(state == true) {
+//      this.element.appendChild(this.element.inner);
+//      this.element.inner.filler.style["animation-play-state"] = "running";
+//      this.element.inner.filler.style["animation-iteration-count"] = "infinite";
+//    } else {
+//      this.element.inner.filler.style["animation-iteration-count"] = 1;
+//    }
+//  }
+//}
 
 class Entity {
   constructor() {
     this.globalFrame = document.createElement('div');
   }
-  checkSuccess() {
+  checkSuccess(odds) {
     if (Math.random() < odds) {
         return true;
       } else {
@@ -83,15 +83,15 @@ class Golemancer extends Entity {
   }
 }
 
-class Device extends Entity{
+class Device extends Entity {
   constructor(creator) {
     super();
     this._attributes = { 
       power: 10 * creator.skills.construction,
       speed: 10 * creator.skills.vision,
       endurance: 10 * creator.skills.execution,
-      durability: 10 + creator.skills.construction + creator.skills.vision + creator.skills.execution,
-      maxDurability:  10 + creator.skills.construction + creator.skills.vision + creator.skills.execution,
+      durability: 30 + creator.skills.construction + creator.skills.vision + creator.skills.execution,
+      maxDurability:  30 + creator.skills.construction + creator.skills.vision + creator.skills.execution,
     };
     this.skills = {
       execution: 0,
@@ -134,10 +134,24 @@ class Device extends Entity{
     this.elements.log.ul.appendChild(newLogEntry);
     this.elements.log.scrollTop = this.elements.log.scrollHeight;
   }
-  addActionButton(name, text, effect, repeat) {
-    let newButton = new ActionButton(name, text, effect,repeat);
+  addActionButton(name, text, effect, repeat, duration) {
+    let newButton = new ActionButton(name, text, effect, repeat, duration);
     this.elements.actionButtons.appendChild(newButton.element);
     this.buttons[name] = newButton;
+    if(duration != undefined) {
+      newButton.hasDuration(true);
+    }
+  }
+  modifyAttributes(attr,val) {
+    this._attributes[attr] += val;  
+    
+    switch (attr) {
+      case "durability":
+        this.elements.attributes.durability.innerHTML = "Durability: " + this._attributes["durability"] + " / " + this._attributes.maxDurability;
+        break;
+      case "endurance":
+        this.elements.attributes.endurance.innerHTML = "Endurance: " + this._attributes["endurance"];
+    }
   }
 }
 
