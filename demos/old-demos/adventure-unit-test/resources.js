@@ -1,15 +1,37 @@
-let resources = {
-      element: document.querySelector('#resources'),
-      rock: { qty: 0, element: document.createElement('p'), gatherRate: 1 },
-      iron: { qty: 0, element: document.createElement('p') },
-      sand: { qty: 0, element: document.createElement('p') },
-      glass: { qty: 0, element: document.createElement('p') }
-    }
+class Resource {
+  constructor(label,parent) {
+    this.label = label + ": ";
+    this.element = document.createElement('p');
+    this.qty = 0;
+    this.element.innerHTML = this.label + this.qty;
+    parent.appendChild(this.element);
+  }
+  update(val) {
+    this.qty += val;
+    this.element.innerHTML = this.label + this.qty;
+  }
+}
 
-resources.rock.element.innerHTML = "Rocks: " + resources.rock.qty;
-resources.element.appendChild(resources.rock.element);
-resources.iron.element.innerHTML = "Iron: " + resources.iron.qty;
-resources.sand.element.innerHTML = "Sand: " + resources.sand.qty;
+//let resources = {
+//      element: document.querySelector('#resources'),
+//      rock: { qty: 0, element: document.createElement('p'), gatherRate: 1 },
+//      iron: { qty: 0, element: document.createElement('p') },
+//      sand: { qty: 0, element: document.createElement('p') },
+//      glass: { qty: 0, element: document.createElement('p') }
+//    }
+
+//let resources = {
+//  element: document.querySelector("#resources")
+//}
+//resources.rock = new Resource("Rocks", resources.element);
+//resources.iron = new Resource("Iron", resources.element);
+//resources.sand = new Resource("Sand", resources.element);
+//resources.glass = new Resource("Glass", resources.element);
+
+//resources.rock.element.innerHTML = "Rocks: " + resources.rock.qty;
+//resources.element.appendChild(resources.rock.element);
+//resources.iron.element.innerHTML = "Iron: " + resources.iron.qty;
+//resources.sand.element.innerHTML = "Sand: " + resources.sand.qty;
 
 function addResource(type,qty) {
   switch (type) {
@@ -52,3 +74,5 @@ function removeResource(type,qty) {
       resources.glass.element.innerHTML = "Glass: " + resources.glass.qty;
   }
 }
+
+//let testResource = new Resource("Kibits",resources.element);

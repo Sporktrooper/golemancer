@@ -136,11 +136,15 @@ class Device extends Entity {
   }
   addActionButton(name, text, effect, repeat, duration) {
     let newButton = new ActionButton(name, text, effect, repeat, duration);
-    this.elements.actionButtons.appendChild(newButton.element);
+    newButton.parent = this;
+//    this.elements.actionButtons.appendChild(newButton.element);
     this.buttons[name] = newButton;
     if(duration != undefined) {
       newButton.hasDuration(true);
     }
+  }
+  attachButton(actionButton) {
+    actionButton.parent.elements.actionButtons.appendChild(actionButton.element)
   }
   modifyAttributes(attr,val) {
     this._attributes[attr] += val;  

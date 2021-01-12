@@ -1,3 +1,11 @@
+let resources = {
+  element: document.querySelector("#resources")
+}
+resources.rock = new Resource("Rocks", resources.element);
+resources.iron = new Resource("Iron", resources.element);
+resources.sand = new Resource("Sand", resources.element);
+resources.glass = new Resource("Glass", resources.element);
+
 let golemancer = new Golemancer();
 golemancer.skills.construction = 1;
 golemancer.skills.vision = 1;
@@ -27,7 +35,8 @@ document.querySelector('#gameContainer').appendChild(device.globalFrame)
 device.writeLog("The device whirs to life and awaits instructions.")
 device.addActionButton('collect-rock',"Collect a rock.",function() {
   if(device._attributes.durability > 0) {
-    addResource("rocks",1); 
+//    addResource("rocks",1); 
+    resources.rock.update(1);
     if (resources.rock.qty >= 10 && !device.buttons['collect-rock'].autoRepeat) {
       addRepeatRocksButton();
     }
@@ -44,23 +53,29 @@ device.addActionButton('collect-rock',"Collect a rock.",function() {
     }
   }
   
-  // stop gathering at 0 durability -- doesn't work
-  if(device._attributes.durability == 0) {
+  // stop gathering at 0 durability
+  if(device._attributes.durability <= 0) {
     console.log('no durability left');
     device.buttons['collect-rock'].element.inner.filler.style["animation-play-state"] = "paused"
   }
 },true,1000)
 //device.buttons['collect-rock'].autoRepeat = true;
+device.attachButton(device.buttons['collect-rock']);
 
-function addRepeatRocksButton() {
-  device.addActionButton('repeat-collect-rock',"Keep collecting rocks.",function() {
+
+device.addActionButton('repeat-collect-rock',"Keep collecting rocks.",function() {
     device.buttons['collect-rock'].autoRepeat = true;
     device.buttons['collect-rock'].element.innerHTML = "Keep collecting rocks.";
     device.buttons['collect-rock'].hasDuration(true);
   })
+
+function addRepeatRocksButton() {
+//  device.buttons['repeat-collect-rock']
+  device.attachButton(device.buttons['repeat-collect-rock']);
 }
 
-addResource('rocks',15)
+//addResource('rocks',15)
+resources.rock.update(15);
 
 device.addActionButton('grind-rocks',"Grind 10 rocks",function() {
   if(resources.rock.qty < 10) {

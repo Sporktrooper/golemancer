@@ -2,7 +2,7 @@ class ActionButton {
   constructor(name, buttonText,clickAction,repeat,duration) {
     this.effect = clickAction;
     this.autoRepeat = false;
-    this.canRun = false;
+    this.canRun = true;
     this.element = document.createElement('div');
     this.element.id = name;
     this.element.classList.add('actionButton');
@@ -44,7 +44,7 @@ class ActionButton {
     }
   }
   fireEffect(costPaid,repeat) {
-    if (costPaid,repeat) {
+    if (costPaid) {
       this.element.inner.filler.style["animation-play-state"] = "running";
       if(!repeat == true) {
         this.element.parentNode.removeChild(this.element);
