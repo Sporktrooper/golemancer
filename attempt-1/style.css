@@ -1,3 +1,29 @@
 p {
   margin: 0;
 }
+
+.actionBox {
+  border: 0.1em solid black;
+  display: flex;
+  height: 3em;
+  padding: 0.3em;
+}
+
+.actionButton {
+  border: 0.1em solid black;
+  padding: 0.3em;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.actionButton:active {
+  background-color: black;
+}
+
+.actionBarHead {
+  display: flex;
+  align-items: center;
+  user-select: none;
+  min-width: 5em;
+}

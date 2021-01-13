@@ -1,37 +1,9 @@
-let points = 0;
-
-
-let action = () => {
-  console.log('action fired');
-//  console.log(this);
-}
-
-action();
-
-let actions = {};
-actions['addPoint'] = () => {
-  points++;
-};
-actions['subtractPoint'] = () => {
-  points--;
-};
-
-actions['addPoint']();
-console.log(points)
-
-//let device = {
-//  action: '',
-//  repeating: false,
-//  speed: 1000,
-//  actions: actions,
-//}
-
 class Device {
-  constructor() {
+  constructor(actions) {
     this._action = '';
     this.repeating = false;
     this.speed = 1000;
-    this.actions = {};
+    this.actions = actions || {};
   }
   toggle() {
     this.repeating = !this.repeating;
@@ -55,15 +27,16 @@ class Device {
   }
 }
 
-let device = new Device();
-device.actions = actions;
-device.actions.addPoint();
-console.log(points)
-
-device.actions['subtractPoint']();
-console.log(points);
-
-device.action = 'addPoint'
-//device.toggle()
-console.log(device)
-
+//
+//let device = new Device();
+//device.actions = actions;
+//device.actions.addPoint();
+//console.log(points)
+//
+//device.actions['subtractPoint']();
+//console.log(points);
+//
+//device.action = 'addPoint'
+////device.toggle()
+//console.log(device)
+//
