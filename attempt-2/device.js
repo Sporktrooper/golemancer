@@ -23,6 +23,9 @@ class Device {
     this.repeating = true;
     this.interval = setInterval(this.actions[this._action],this.speed)
   }
+  doAction() {
+    this.actions[this._action]();
+  }
   set action(actionName) {
     this._action = '' + actionName;
     this.toggleOff();

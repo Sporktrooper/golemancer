@@ -1,3 +1,7 @@
+:root {
+  font-family: sans-serif;
+}
+
 p {
   margin: 0;
 }
@@ -7,23 +11,59 @@ p {
   display: flex;
   height: 3em;
   padding: 0.3em;
+  background-color: #aab;
 }
 
 .actionButton {
+  background-color: #dd7;
   border: 0.1em solid black;
   padding: 0.3em;
+  margin: 0em 0.2em;
   display: flex;
   align-items: center;
+  justify-content: center;
   user-select: none;
+  min-width: 3em;
 }
 
-.actionButton:active {
-  background-color: black;
+.actionButton.selected {
+/*  background-color: black;*/
+  box-shadow: inset 0em 0em 0.3em black;
 }
 
 .actionBarHead {
   display: flex;
   align-items: center;
   user-select: none;
-  min-width: 5em;
+  min-width: 7em;
+}
+
+.toggle {
+  border-radius: 30%;
+/*  border: 0.1em solid #bb4;*/
+  border: 0.1em solid #444;
+  margin-right: 0.5em;
+}
+.toggle.on {
+  border-right: 0.4em solid #390;
+  background: rgb(187,187,68);
+  background: linear-gradient(270deg, #cc5 0%, #aa3 95%, #aa3 100%);
+}
+.toggle.off {
+  border-left: 0.4em solid #930;
+  background: rgb(187,187,68);
+  background: linear-gradient(90deg, #cc5 0%, #aa3 95%, #aa3 100%);
+}
+
+
+#templateHolder {
+  display: flex;
+}
+.deviceSlot {
+  border: 1px solid red;
+  min-width: 10em;
+}
+
+.deviceSlot.header {
+  
 }
