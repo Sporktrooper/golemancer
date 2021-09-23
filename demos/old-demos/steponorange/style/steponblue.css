@@ -1,0 +1,143 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: black;
+}
+
+#gameContainer {
+  border: 6px solid #ce0;
+  border-radius: 10px;
+  margin: 1% auto;
+  width: 320px;
+  height: 605px;
+  background-color: #3d8;
+  flex: none;
+}
+
+#hotbar{
+  
+/*  position: relative;*/
+  display: flex;
+  flex-basis: 0;
+  justify-content: center;
+/*  align-items: center;*/
+/*  margin: 0 auto;*/
+/*  border: 1px solid red;*/
+/*  width: 330px;*/
+/*  height: 80px;*/
+}
+.hotbarButton {
+  user-select: none;
+  font-size: 50px;
+  font-family: sans-serif;
+  margin: 1px;
+  display: flex;
+  border-radius: 10px;
+  position: relative;
+  border: 1px solid blue;
+  height: 75px;
+  width: 75px;
+  
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccf
+}
+#btn1 {
+  
+}
+#btn2 {
+  
+}
+#btn3 {
+  
+}
+#btn4 {
+  
+}
+
+.hotbarButton:active {
+  background-color: red;
+}
+
+.hotbarButton.active {
+  background-color: red;
+}
+
+/*
+#ball {
+  position: relative;;
+  width: 75px;
+  height: 75px;
+  background-color: red;
+  border-radius: 100%;
+  border: 1px solid black;
+  top: 100px;
+  left: 300px;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+}
+*/
+
+#track {
+  overflow: hidden;
+  background-color: #6cf;
+  border: 3px solid #ee0;
+  border-radius: 10px;
+  position: relative;
+  height: 510px;
+  margin: 3px;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 3px;
+}
+
+.trackLine {
+/*  border: 1px solid red;*/
+  height: 96px;
+  width: 99%;
+/*  position: absolute;*/
+/*  bottom: 3px;*/
+  display: flex;
+  margin-top: 3px;
+}
+
+.trackStep {
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;;
+  background-color: rgba(0,255,0,0.1);
+    
+/*  display: flex;*/
+  height: 100%;
+  width: 25%;
+}
+
+.trackStep.on {
+
+  background-color: gold;
+  box-shadow: 0px 0px 40px inset red;
+}
+
+.trackLine.solved {
+  height: 0;
+  visibility: hidden;
+  transition-property: all;
+  transition-duration: 0.5s;
+}
+
+#biggerGameContainer {
+  border: 1px solid #555;
+  background-color: rgba(0,100,100,0.5);
+  color: white;
+  display: flex;
+  margin: 0 auto;
+  justify-content: flex-start;
+  width: 400px;
+}
+
+#scorekeeper {
+/*  border: 1px solid red;*/
+  flex: none;
+  align-self: center;
+  flex-basis: 0;
+}

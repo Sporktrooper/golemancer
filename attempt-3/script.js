@@ -15,9 +15,10 @@ actions['spendPoint'] = () => {
 actions['collectRock'] = (qty) => {
   rocks.update(qty || 1);
 }
-actions['sellRock'] = () => {
+actions['sellRock'] = function() {
   points.update(rocks.qty);
   rocks.update(-rocks.qty);
+  console.log(this);
 }
 
 let secondDevice = new Device(actions);
